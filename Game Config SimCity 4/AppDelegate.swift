@@ -20,7 +20,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         UserDefaults.standard.removeObject(forKey: "GameRunning")
         syncShellExec(path: scriptPath, args: ["_kill_wine"])
-        
     }
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {

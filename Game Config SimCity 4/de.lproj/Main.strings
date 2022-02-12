@@ -94,14 +94,8 @@
 /* Class = "NSTextFieldCell"; title = "Game Shortcuts"; ObjectID = "RNY-mG-KIk"; */
 "RNY-mG-KIk.title" = "Tastaturkürzel";
 
-/* Class = "NSTextFieldCell"; title = "Ctrl + B\nCtrl + F\nCtrl + V\nCtrl + G\nCtrl + S\nCtrl + L\nCtrl + ←\nCtrl + →\nCtrl + ↑ \nCtrl + ↓ \nSpace\n+\n-\nDel\nBackspace\nC\nD\nH\nB\nM\nF\nO\nZ\nG\nE\nA\nS"; ObjectID = "rWq-de-mlS"; */
-"rWq-de-mlS.title" = "Strg + B\nStrg + F\nStrg + V\nStrg + G\nStrg + S\nStrg + L\nStrg + ←\nStrg + →\nStrg + ↑ \nStrg + ↓ \nLeertaste\n+\n-\nEntf\nBackspace\nC\nD\nH\nB\nM\nF\nO\nZ\nG\nE\nA\nS";
-
 /* Class = "NSMenuItem"; title = "1152 x 648"; ObjectID = "s1h-Lk-ywi"; */
 "s1h-Lk-ywi.title" = "1152 x 648";
-
-/* Class = "NSButtonCell"; title = "Colored Mouse"; ObjectID = "sPN-tb-8VR"; */
-"sPN-tb-8VR.title" = "Farbiger Zeiger";
 
 /* Class = "NSButtonCell"; title = "Save"; ObjectID = "ST9-cU-Zxj"; */
 "ST9-cU-Zxj.title" = "Sichern";
@@ -126,9 +120,6 @@
 
 /* Class = "NSMenuItem"; title = "1920 x 1200"; ObjectID = "Y71-zQ-nt7"; */
 "Y71-zQ-nt7.title" = "1920 x 1200";
-
-/* Class = "NSTextFieldCell"; title = "Hide/Show Buildings\nHide/Show Foliage (Ground,Water,Etc.)\nHide/Show Guests\nHide/Show Grid\nSave a Game\nLoad a Saved Game\nRotate Counter-Clockwise\nRotate Clockwise\nZoom In\nZoom Out\nPause/Resume Game\nIncrease Grid\nDecrease Grid\nClear\nUndo\nConstruct Exhibit\nAdopt Animal\nHire Staff\nBuy Buildings/Objects\nShow Messages\nDisplay File Options\nDisplay Scenario Objectives\nDisplay Zoo Status\nDisplay Guest Info\nDisplay Exhibit Info\nDisplay Animal Info\nDisplay Staff Info"; ObjectID = "Yna-n7-uiv"; */
-"Yna-n7-uiv.title" = "Verstecke/Zeige Gebäude\nVerstecke/Zeige Gelände (Wasser,Bäume,Etc.)\nVerstecke/Zeige Besucher\nVerstecke/Zeige Gitter\nSpiel speichern\nSpiel laden\nNach links drehen\nNach rechts drehen\nHereinzoomen\nHerauszoomen\nSpiel pausieren/fortsetzen\nGitter vergrößern\nGitter verkleinern\nLöschen\nWiederherstellen\nGehege erstellen\nTiere kaufen\nPersonal anwerben\nGebäude/Objekte kaufen\nNachrichten zeigen\nDateioptionen zeigen\nSpielziel zeigen\nZoostatus anzeigen\nBesucherinfo anzeigen\nGehegeinfo anzeigen\nTierinfo anzeigen\nPersonalinfo anzeigen";
 
 /* Class = "NSButtonCell"; title = "Install Game"; ObjectID = "zB1-hO-ZjY"; */
 "zB1-hO-ZjY.title" = "Spiel installieren";

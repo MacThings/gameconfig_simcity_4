@@ -1,5 +1,5 @@
 /* No comment provided by engineer. */
-"A Wineskin window will now open. Please insert the 1. Install CD or Image of Zoo Tycoon and do the following:\n\n- Press \"Install Software\"\n- Press\"Choose Setup Executable\"\n-Navigate to Setup Exe and press \"Choose\"\n\nFollow the install instructions of the Windows application. Please don´t change the default install path. Simply accept all. After the installation of Disc 1 is done insert the 2nd one and repeat the whole process.\n\nAt the end of the installation you can close the Installer with the X on the top right corner.\n\nYou can close Wineskin than and restart this Game Config application and you are ready to go." = "Nun öffnet sich ein Wineskin-Fenster. Bitte lege die 1. Installations-CD oder das Image von Zoo Tycoon ein und gehe wie folgt vor:\n\n- Drücke \"Install Software\"\n- Drücke \"Choose Setup Executable\"\n-Navigiere zu Setup Exe und drücke \"Choose\"\n\nFolge den Installationsanweisungen der Windows-Anwendung. Bitte ändere nicht den Standard-Installationspfad. Einfach alles akzeptieren. Nachdem die Installation von Disc 1 abgeschlossen ist, lege die zweite Disc / Image ein und wiederhole den gesamten Vorgang.\n\nAm Ende der Installation kannst Du den Installer mit dem X in der oberen rechten Ecke schließen.\nSchließe nun Wineskin und starte diese Game Config-Anwendung neu und es kann losgehen.";
+"When the installation in Windows has been completed, close the setup program. Don't open the game just yet!\n\n Restart the Game Config app and you're ready to go." = "Wenn die Installation in Windows durchgelaufen ist schließe das Setup Programm. Nicht das Spiel jetzt schon öffnen!\n\nStarte die Game Config App neu und es kann losgehen.";
 
 /* No comment provided by engineer. */
 "Configurator" = "Konfigurator";
@@ -8,5 +8,5 @@
 "Ok" = "Ok";
 
 /* No comment provided by engineer. */
-"Read before proceed ..." = "Bitte lesen";
+"Read before proceed!" = "Bitte vorher lesen!";
 

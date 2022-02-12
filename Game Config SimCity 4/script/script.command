@@ -35,12 +35,22 @@ _helpDefaultWrite "WrapperPath" "$wrapperpath"
 function _check_for_game()
 {
 
-    if [ -d "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/Apps" ]; then
+    if [ -f "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/Apps/SimCity 4.exe" ]; then
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameInstalled" -bool TRUE
     else
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameInstalled" -bool FALSE
     fi
         
+
+}
+
+function _setup_exe()
+{
+
+    setup_exe=$( _helpDefaultRead "SetupExe" )
+    #/usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $setup_exe" "$plist"
+    echo "\"Z:$setup_exe\"" > Contents/Resources/drive_c/preinstall.bat
+    open "../SimCity 4.app"
 
 }
 
@@ -151,30 +161,12 @@ function _save_config()
         cmd1="-w"
     fi
     
-    echo "$width" > /private/tmp/yo
-    
     flag="$cmd1 -CustomResolution:enabled -r"$width"x"$height"x32"
-    
     /usr/libexec/PlistBuddy -c "Set Program\ Flags $flag" "$plist"
     
-    exit
+    game_exe="/GOG Games/SimCity 4 Deluxe Edition/Apps/SimCity 4.exe"
+    /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
     
-    sed -ib "s/screenwidth.*/screenwidth=$width/g" "$ini"
-    sed -ib "s/screenheight.*/screenheight=$height/g" "$ini"
-    
-    sed -ib "s/fullscreen.*/fullscreen=1/g" "$ini"
-    
-    if [[ "$fullscreen" = "1" ]]; then
-        sed -ib "s/fullscreen.*/fullscreen=1/g" "$ini"
-    else
-        sed -ib "s/fullscreen.*/fullscreen=0/g" "$ini"
-    fi
-    
-    if [[ "$retina" = "1" ]]; then
-        sed -ib 's/.*RetinaMode.*/"RetinaMode"="Y"/g' "Contents/Resources/user.reg"
-    else
-        sed -ib 's/.*RetinaMode.*/"RetinaMode"="N"/g' "Contents/Resources/user.reg"
-    fi
 }
 
 $1

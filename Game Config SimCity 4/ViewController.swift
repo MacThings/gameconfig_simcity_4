@@ -24,8 +24,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var install_bt: NSButton!
     @IBOutlet weak var save_bt: NSButton!
     @IBOutlet weak var play_bt: NSButton!
- 
 
+    @IBOutlet weak var change_language: NSButton!
     @IBOutlet weak var disabler: NSTextField!
    
     
@@ -46,7 +46,7 @@ class ViewController: NSViewController {
             self.custom.isEnabled = false
             self.fullscreen.isEnabled = false
             self.retina_mode.isEnabled = false
-            //self.colored.isEnabled = false
+            self.change_language.isEnabled = false
             self.open_c.isEnabled = false
             self.load_exe.isEnabled = false
             self.save_bt.isEnabled = false
@@ -57,7 +57,7 @@ class ViewController: NSViewController {
             self.custom.isEnabled = true
             self.fullscreen.isEnabled = true
             self.retina_mode.isEnabled = true
-            //self.colored.isEnabled = true
+            self.change_language.isEnabled = true
             self.open_c.isEnabled = true
             self.load_exe.isEnabled = true
             self.save_bt.isEnabled = true
@@ -106,26 +106,11 @@ class ViewController: NSViewController {
         }
     }
     
-    
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
     }
-    
-    @IBAction func install_game(_ sender: Any) {
-        let alert = NSAlert()
-        alert.messageText = NSLocalizedString("Read before proceed ...", comment: "")
-        alert.informativeText = NSLocalizedString("A Wineskin window will now open. Please insert the 1. Install CD or Image of Zoo Tycoon and do the following:\n\n- Press \"Install Software\"\n- Press\"Choose Setup Executable\"\n-Navigate to Setup Exe and press \"Choose\"\n\nFollow the install instructions of the Windows application. Please don´t change the default install path. Simply accept all. After the installation of Disc 1 is done insert the 2nd one and repeat the whole process.\n\nAt the end of the installation you can close the Installer with the X on the top right corner.\n\nYou can close Wineskin than and restart this Game Config application and you are ready to go.", comment: "")
-        alert.alertStyle = .informational
-        alert.icon = NSImage(named: "NSError")
-        let Button = NSLocalizedString("Ok", comment: "")
-        alert.addButton(withTitle: Button)
-        alert.runModal()
-                
-        syncShellExec(path: scriptPath, args: ["_open_wineskin"])
-    }
-    
     
     @IBAction func language(_ sender: Any) {
         syncShellExec(path: scriptPath, args: ["_language"])
@@ -134,7 +119,6 @@ class ViewController: NSViewController {
     @IBAction func open_c(_ sender: Any) {
         let wrapperpath = UserDefaults.standard.string(forKey: "WrapperPath") ?? ""
         NSWorkspace.shared.openFile(wrapperpath + "/Contents/Resources/drive_c")
-        //print(wrapperpath + "/Contents/Resources/drive_c")
     }
     
     @IBAction func load_exe(_ sender: Any) {
@@ -209,6 +193,42 @@ class ViewController: NSViewController {
         } else {
             play_bt.isEnabled = true
             disabler.isHidden = true
+        }
+    }
+    
+    @IBAction func browseFile_setup_exe(sender: AnyObject) {
+        
+        let dialog = NSOpenPanel();
+        
+        dialog.title                   = "Choose a Folder";
+        dialog.showsResizeIndicator    = true;
+        dialog.showsHiddenFiles        = false;
+        dialog.canChooseDirectories    = true;
+        dialog.canCreateDirectories    = false;
+        dialog.allowsMultipleSelection = false;
+        dialog.allowedFileTypes        = ["exe"];
+        
+        if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+            let result = dialog.url // Pathname of the file
+            
+            if (result != nil) {
+                let alert = NSAlert()
+                alert.messageText = NSLocalizedString("Read before proceed!", comment: "")
+                alert.informativeText = NSLocalizedString("When the installation in Windows has been completed, close the setup program. Don't open the game just yet!\n\n Restart the Game Config app and you're ready to go.", comment: "")
+                alert.alertStyle = .informational
+                alert.icon = NSImage(named: "NSError")
+                let Button = NSLocalizedString("Ok", comment: "")
+                alert.addButton(withTitle: Button)
+                alert.runModal()
+                
+                let path = result!.path
+                let dlpath = (path as String)
+                UserDefaults.standard.set(dlpath, forKey: "SetupExe")
+                syncShellExec(path: scriptPath, args: ["_setup_exe"])
+            }
+        } else {
+            // User clicked on "Cancel"
+            return
         }
     }
     

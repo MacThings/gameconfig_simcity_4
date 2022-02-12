@@ -306,7 +306,7 @@
                                 </buttonCell>
                                 <color key="bezelColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                 <connections>
-                                    <action selector="install_game:" target="XfG-lQ-9wD" id="Je0-fn-PB1"/>
+                                    <action selector="browseFile_setup_exeWithSender:" target="XfG-lQ-9wD" id="uny-8y-lwU"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5QE-lU-VRc">
@@ -347,6 +347,7 @@ AwMDA+KAqOKAqCAgICAgIANSdW5uaW5nIC4uLg
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="change_language" destination="6kw-Kk-Ah0" id="EeV-va-blE"/>
                         <outlet property="custom" destination="zQS-bd-grQ" id="Shj-3x-pNM"/>
                         <outlet property="disabler" destination="O6r-nA-ghC" id="KQz-wb-ZaY"/>
                         <outlet property="fullscreen" destination="SMy-Ic-C4G" id="UVh-mk-FBe"/>
