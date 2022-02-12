@@ -17,8 +17,6 @@ class ViewController: NSViewController {
     @IBOutlet weak var custom: NSButton!
     @IBOutlet weak var fullscreen: NSButton!
     @IBOutlet weak var retina_mode: NSButton!
-    @IBOutlet weak var colored: NSButton!
-    
     
     @IBOutlet weak var open_c: NSButton!
     @IBOutlet weak var load_exe: NSButton!
@@ -26,16 +24,18 @@ class ViewController: NSViewController {
     @IBOutlet weak var install_bt: NSButton!
     @IBOutlet weak var save_bt: NSButton!
     @IBOutlet weak var play_bt: NSButton!
-    
+ 
+
     @IBOutlet weak var disabler: NSTextField!
-    @IBOutlet weak var progress_wheel: NSProgressIndicator!
-    
+   
     
     let scriptPath = Bundle.main.path(forResource: "/script/script", ofType: "command")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        UserDefaults.standard.removeObject(forKey: "GameRunning")
+        
         syncShellExec(path: scriptPath, args: ["_check_for_game"])
         
         let game_installed = UserDefaults.standard.bool(forKey: "GameInstalled")
@@ -200,7 +200,17 @@ class ViewController: NSViewController {
         self.save_bt.bezelColor = NSColor.red
     }
     
-    
+    @objc func run_check() {
+        syncShellExec(path: scriptPath, args: ["_run_check"])
+        let runcheck = UserDefaults.standard.bool(forKey: "GameRunning")
+        if runcheck == true {
+            play_bt.isEnabled = false
+            disabler.isHidden = false
+        } else {
+            play_bt.isEnabled = true
+            disabler.isHidden = true
+        }
+    }
     
     func syncShellExec(path: String, args: [String] = []) {
         let process            = Process()
@@ -212,21 +222,5 @@ class ViewController: NSViewController {
         process.waitUntilExit()
     }
     
-    @objc func run_check() {
-        syncShellExec(path: scriptPath, args: ["_run_check"])
-        let runcheck = UserDefaults.standard.bool(forKey: "GameRunning")
-        if runcheck == true {
-            play_bt.isEnabled = false
-            disabler.isHidden = false
-            progress_wheel.startAnimation("")
-            progress_wheel.isHidden = false
-        } else {
-            play_bt.isEnabled = true
-            disabler.isHidden = true
-            progress_wheel.stopAnimation("")
-            progress_wheel.isHidden = true
-        }
-    }
-
 }
 

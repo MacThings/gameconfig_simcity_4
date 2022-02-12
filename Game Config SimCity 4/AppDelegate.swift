@@ -9,6 +9,8 @@ import Cocoa
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    let scriptPath = Bundle.main.path(forResource: "/script/script", ofType: "command")!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
@@ -16,7 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        UserDefaults.standard.removeObject(forKey: "GameRunning")
+        syncShellExec(path: scriptPath, args: ["_kill_wine"])
         
     }
 
@@ -29,6 +32,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
-
+    func syncShellExec(path: String, args: [String] = []) {
+        let process            = Process()
+        process.launchPath     = "/bin/bash"
+        process.arguments      = [path] + args
+        let outputPipe         = Pipe()
+        process.standardOutput = outputPipe
+        process.launch()
+        process.waitUntilExit()
+    }
+    
 }
 

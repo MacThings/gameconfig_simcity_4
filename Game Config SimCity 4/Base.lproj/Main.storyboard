@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
-        <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -99,22 +98,22 @@
                                             <menuItem title="1400 x 1050" tag="5" hidden="YES" id="fi6-hW-bFS"/>
                                             <menuItem title="1440 x 1080" tag="6" hidden="YES" id="5uv-R4-Orv"/>
                                             <menuItem title="1600 x 1200" tag="7" id="fGe-h4-KNy"/>
-                                            <menuItem isSeparatorItem="YES" id="yjL-ga-3ft">
+                                            <menuItem isSeparatorItem="YES" hidden="YES" id="yjL-ga-3ft">
                                                 <attributedString key="attributedTitle"/>
                                             </menuItem>
                                             <menuItem title="1024 x 576" tag="11" id="8sR-OZ-sJD"/>
                                             <menuItem title="1152 x 648" tag="12" hidden="YES" id="s1h-Lk-ywi"/>
                                             <menuItem title="1280 x 720" tag="13" id="QzN-VH-rMy"/>
-                                            <menuItem title="1366 x 768" tag="14" id="DER-jD-6jH"/>
+                                            <menuItem title="1366 x 768" tag="14" hidden="YES" id="DER-jD-6jH"/>
                                             <menuItem title="1600 x 900" tag="15" id="ljV-eB-TgE"/>
                                             <menuItem title="1920 x 1080" tag="16" id="EFB-Hx-rGl"/>
                                             <menuItem title="2560 x 1440" tag="17" id="xxc-Gl-7YS"/>
                                             <menuItem title="3840 x 2160" tag="18" id="VbW-zO-LB8"/>
-                                            <menuItem isSeparatorItem="YES" id="Pjv-Zd-6AG"/>
-                                            <menuItem title="1280 x 800" tag="19" id="kyQ-6X-DeG"/>
-                                            <menuItem title="1440 x 900" tag="20" id="hOa-dq-s5u"/>
-                                            <menuItem title="1680 x 1050" tag="21" id="dq1-8t-RK6"/>
-                                            <menuItem title="1920 x 1200" tag="22" id="Y71-zQ-nt7"/>
+                                            <menuItem isSeparatorItem="YES" hidden="YES" id="Pjv-Zd-6AG"/>
+                                            <menuItem title="1280 x 800" tag="19" hidden="YES" id="kyQ-6X-DeG"/>
+                                            <menuItem title="1440 x 900" tag="20" hidden="YES" id="hOa-dq-s5u"/>
+                                            <menuItem title="1680 x 1050" tag="21" hidden="YES" id="dq1-8t-RK6"/>
+                                            <menuItem title="1920 x 1200" tag="22" hidden="YES" id="Y71-zQ-nt7"/>
                                             <menuItem title="2560 x 1600" tag="23" id="8ny-K9-STa"/>
                                         </items>
                                     </menu>
@@ -236,7 +235,7 @@
                                     <font key="font" metaFont="smallSystem"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="eud-Bz-Say" kind="show" id="RSk-Vr-wrq"/>
+                                    <segue destination="eud-Bz-Say" kind="popover" popoverAnchorView="Gn4-XW-Bvx" popoverBehavior="t" preferredEdge="maxY" id="RSk-Vr-wrq"/>
                                 </connections>
                             </button>
                             <button hidden="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I3U-HJ-KQa">
@@ -333,31 +332,29 @@
                                     <action selector="language:" target="XfG-lQ-9wD" id="DCD-si-Vmk"/>
                                 </connections>
                             </button>
-                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dn5-O5-aGn" userLabel="Disabler">
-                                <rect key="frame" x="0.0" y="0.0" width="273" height="298"/>
+                            <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-nA-ghC">
+                                <rect key="frame" x="0.0" y="0.0" width="273" height="239"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" drawsBackground="YES" id="PX1-xr-gt8">
-                                    <font key="font" usesAppearanceFont="YES"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="left" drawsBackground="YES" id="bOc-iy-IaJ">
+                                    <font key="font" metaFont="system" size="40"/>
+                                    <string key="title" base64-UTF8="YES">
+AwMDAwPigKjigKggICAgICBSdW5uaW5nIC4uLg
+</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="unemphasizedSelectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <progressIndicator hidden="YES" fixedFrame="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="P95-26-Huo">
-                                <rect key="frame" x="12" y="248" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </progressIndicator>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="custom" destination="zQS-bd-grQ" id="Shj-3x-pNM"/>
-                        <outlet property="disabler" destination="dn5-O5-aGn" id="mLf-gw-jH4"/>
+                        <outlet property="disabler" destination="O6r-nA-ghC" id="KQz-wb-ZaY"/>
                         <outlet property="fullscreen" destination="SMy-Ic-C4G" id="UVh-mk-FBe"/>
                         <outlet property="height" destination="LEo-GI-1v3" id="t0A-EU-pt8"/>
                         <outlet property="install_bt" destination="QKO-lo-nnc" id="IUf-gs-0RV"/>
                         <outlet property="load_exe" destination="MLm-tl-adl" id="MXp-4M-wgc"/>
                         <outlet property="open_c" destination="Mwu-qX-MHq" id="hFV-8z-bx7"/>
                         <outlet property="play_bt" destination="I3U-HJ-KQa" id="x6l-1F-Ov8"/>
-                        <outlet property="progress_wheel" destination="P95-26-Huo" id="yfF-1y-JqH"/>
                         <outlet property="res_selector" destination="gXS-Hh-OM3" id="sUi-24-zmh"/>
                         <outlet property="retina_mode" destination="5QE-lU-VRc" id="Wjf-lv-KMW"/>
                         <outlet property="save_bt" destination="MUD-ih-Syg" id="ChG-zT-D1c"/>

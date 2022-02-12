@@ -77,6 +77,13 @@ function _run_check()
     fi
 }
 
+function _kill_wine()
+{
+
+    pkill -f "SimCity 4.exe"
+    
+}
+
 function _save_config()
 {
 
