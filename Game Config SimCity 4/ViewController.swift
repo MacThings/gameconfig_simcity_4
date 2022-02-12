@@ -123,6 +123,11 @@ class ViewController: NSViewController {
         syncShellExec(path: scriptPath, args: ["_open_wineskin"])
     }
     
+    
+    @IBAction func language(_ sender: Any) {
+        syncShellExec(path: scriptPath, args: ["_language"])
+    }
+    
     @IBAction func open_c(_ sender: Any) {
         let wrapperpath = UserDefaults.standard.string(forKey: "WrapperPath") ?? ""
         NSWorkspace.shared.openFile(wrapperpath + "/Contents/Resources/drive_c")

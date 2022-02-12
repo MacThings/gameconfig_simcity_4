@@ -47,8 +47,16 @@ function _check_for_game()
 function _open_wineskin()
 {
 
-    open -a Wineskin.app
+    open Wineskin.app
 
+}
+
+function _language()
+{
+    
+    open "ChangeLanguage.app"
+    
+    
 }
 
 function _play()
