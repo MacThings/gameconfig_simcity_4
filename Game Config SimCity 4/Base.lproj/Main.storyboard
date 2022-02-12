@@ -370,11 +370,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HoQ-SQ-BQi">
-                                <rect key="frame" x="20" y="20" width="746" height="480"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSAddTemplate" id="4g5-FG-31E"/>
-                            </imageView>
                         </subviews>
                     </view>
                 </viewController>
@@ -383,7 +378,4 @@
             <point key="canvasLocation" x="585" y="817.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="NSAddTemplate" width="15" height="13"/>
-    </resources>
 </document>
