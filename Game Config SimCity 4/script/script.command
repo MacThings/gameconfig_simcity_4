@@ -61,10 +61,20 @@ function _language()
 
 function _play()
 {
-    
+
     open "../SimCity 4.app"
     
-    
+}
+
+function _run_check()
+{
+
+    task=$( ps ax |grep "SimCity 4.exe" |grep -v grep )
+    if [[ "$task" != "" ]]; then
+        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool TRUE
+    else
+        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool FALSE
+    fi
 }
 
 function _save_config()

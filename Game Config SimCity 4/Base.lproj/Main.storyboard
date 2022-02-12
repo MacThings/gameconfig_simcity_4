@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -95,14 +96,14 @@
                                             <menuItem title="800 x 600" state="on" tag="2" id="0bx-GB-wM8"/>
                                             <menuItem title="1024 x 768" tag="3" id="Pur-e0-6bm"/>
                                             <menuItem title="1280 x 960" tag="4" id="E2b-yq-lJt"/>
-                                            <menuItem title="1400 x 1050" tag="5" id="fi6-hW-bFS"/>
-                                            <menuItem title="1440 x 1080" tag="6" id="5uv-R4-Orv"/>
+                                            <menuItem title="1400 x 1050" tag="5" hidden="YES" id="fi6-hW-bFS"/>
+                                            <menuItem title="1440 x 1080" tag="6" hidden="YES" id="5uv-R4-Orv"/>
                                             <menuItem title="1600 x 1200" tag="7" id="fGe-h4-KNy"/>
                                             <menuItem isSeparatorItem="YES" id="yjL-ga-3ft">
                                                 <attributedString key="attributedTitle"/>
                                             </menuItem>
                                             <menuItem title="1024 x 576" tag="11" id="8sR-OZ-sJD"/>
-                                            <menuItem title="1152 x 648" tag="12" id="s1h-Lk-ywi"/>
+                                            <menuItem title="1152 x 648" tag="12" hidden="YES" id="s1h-Lk-ywi"/>
                                             <menuItem title="1280 x 720" tag="13" id="QzN-VH-rMy"/>
                                             <menuItem title="1366 x 768" tag="14" id="DER-jD-6jH"/>
                                             <menuItem title="1600 x 900" tag="15" id="ljV-eB-TgE"/>
@@ -332,16 +333,31 @@
                                     <action selector="language:" target="XfG-lQ-9wD" id="DCD-si-Vmk"/>
                                 </connections>
                             </button>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dn5-O5-aGn" userLabel="Disabler">
+                                <rect key="frame" x="0.0" y="0.0" width="273" height="298"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" drawsBackground="YES" id="PX1-xr-gt8">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="unemphasizedSelectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <progressIndicator hidden="YES" fixedFrame="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="P95-26-Huo">
+                                <rect key="frame" x="12" y="248" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </progressIndicator>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="custom" destination="zQS-bd-grQ" id="Shj-3x-pNM"/>
+                        <outlet property="disabler" destination="dn5-O5-aGn" id="mLf-gw-jH4"/>
                         <outlet property="fullscreen" destination="SMy-Ic-C4G" id="UVh-mk-FBe"/>
                         <outlet property="height" destination="LEo-GI-1v3" id="t0A-EU-pt8"/>
                         <outlet property="install_bt" destination="QKO-lo-nnc" id="IUf-gs-0RV"/>
                         <outlet property="load_exe" destination="MLm-tl-adl" id="MXp-4M-wgc"/>
                         <outlet property="open_c" destination="Mwu-qX-MHq" id="hFV-8z-bx7"/>
                         <outlet property="play_bt" destination="I3U-HJ-KQa" id="x6l-1F-Ov8"/>
+                        <outlet property="progress_wheel" destination="P95-26-Huo" id="yfF-1y-JqH"/>
                         <outlet property="res_selector" destination="gXS-Hh-OM3" id="sUi-24-zmh"/>
                         <outlet property="retina_mode" destination="5QE-lU-VRc" id="Wjf-lv-KMW"/>
                         <outlet property="save_bt" destination="MUD-ih-Syg" id="ChG-zT-D1c"/>
@@ -362,7 +378,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5g7-ZN-SQ0">
-                                <rect key="frame" x="-2" y="574" width="1505" height="35"/>
+                                <rect key="frame" x="-2" y="575" width="1505" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Game Shortcuts" id="RNY-mG-KIk">
                                     <font key="font" metaFont="system" size="30"/>

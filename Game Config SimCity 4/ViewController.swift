@@ -27,6 +27,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var save_bt: NSButton!
     @IBOutlet weak var play_bt: NSButton!
     
+    @IBOutlet weak var disabler: NSTextField!
+    @IBOutlet weak var progress_wheel: NSProgressIndicator!
+    
     
     let scriptPath = Bundle.main.path(forResource: "/script/script", ofType: "command")!
     
@@ -152,6 +155,8 @@ class ViewController: NSViewController {
         UserDefaults.standard.set(height.stringValue, forKey: "Height")
         syncShellExec(path: scriptPath, args: ["_save_config"])
         
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.run_check), userInfo: nil, repeats: true)
+        
         DispatchQueue.global(qos: .background).async {
             self.syncShellExec(path: self.scriptPath, args: ["_play"])
                 DispatchQueue.main.async {
@@ -207,6 +212,21 @@ class ViewController: NSViewController {
         process.waitUntilExit()
     }
     
+    @objc func run_check() {
+        syncShellExec(path: scriptPath, args: ["_run_check"])
+        let runcheck = UserDefaults.standard.bool(forKey: "GameRunning")
+        if runcheck == true {
+            play_bt.isEnabled = false
+            disabler.isHidden = false
+            progress_wheel.startAnimation("")
+            progress_wheel.isHidden = false
+        } else {
+            play_bt.isEnabled = true
+            disabler.isHidden = true
+            progress_wheel.stopAnimation("")
+            progress_wheel.isHidden = true
+        }
+    }
 
 }
 
