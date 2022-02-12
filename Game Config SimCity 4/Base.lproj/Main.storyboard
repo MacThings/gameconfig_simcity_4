@@ -333,12 +333,12 @@
                                 </connections>
                             </button>
                             <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-nA-ghC">
-                                <rect key="frame" x="0.0" y="0.0" width="273" height="239"/>
+                                <rect key="frame" x="0.0" y="-2" width="273" height="239"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" selectable="YES" alignment="left" drawsBackground="YES" id="bOc-iy-IaJ">
                                     <font key="font" metaFont="system" size="40"/>
                                     <string key="title" base64-UTF8="YES">
-AwMDAwPigKjigKggICAgICBSdW5uaW5nIC4uLg
+AwMDA+KAqOKAqCAgICAgIANSdW5uaW5nIC4uLg
 </string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
