@@ -4,14 +4,14 @@
 /* Class = "NSMenuItem"; title = "800 x 600"; ObjectID = "0bx-GB-wM8"; */
 "0bx-GB-wM8.title" = "800 x 600";
 
-/* Class = "NSMenuItem"; title = "Game Config Zoo Tycoon"; ObjectID = "1Xt-HY-uBw"; */
-"1Xt-HY-uBw.title" = "Game Config Zoo Tycoon";
+/* Class = "NSMenuItem"; title = "Game Config SimCity 4"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "Game Config SimCity 4";
 
-/* Class = "NSMenuItem"; title = "Quit Game Config Zoo Tycoon"; ObjectID = "4sb-4s-VLi"; */
-"4sb-4s-VLi.title" = "Quit Game Config Zoo Tycoon";
+/* Class = "NSMenuItem"; title = "Quit Game Config SimCity 4"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit Game Config SimCity 4";
 
-/* Class = "NSMenuItem"; title = "About Game Config Zoo Tycoon"; ObjectID = "5kV-Vb-QxS"; */
-"5kV-Vb-QxS.title" = "Über Game Config Zoo Tycoon";
+/* Class = "NSMenuItem"; title = "About Game Config SimCity 4"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "Über Game Config SimCity 4";
 
 /* Class = "NSMenuItem"; title = "1440 x 1080"; ObjectID = "5uv-R4-Orv"; */
 "5uv-R4-Orv.title" = "1440 x 1080";
@@ -41,7 +41,7 @@
 "cpy-B6-fbA.title" = "Eigene:";
 
 /* Class = "NSTextFieldCell"; title = "Complete Collection"; ObjectID = "d3b-24-AoI"; */
-"d3b-24-AoI.title" = "Complete Collection";
+"d3b-24-AoI.title" = "Deluxe Edition";
 
 /* Class = "NSMenuItem"; title = "1366 x 768"; ObjectID = "DER-jD-6jH"; */
 "DER-jD-6jH.title" = "1366 x 768";
@@ -106,8 +106,8 @@
 /* Class = "NSButtonCell"; title = "Save"; ObjectID = "ST9-cU-Zxj"; */
 "ST9-cU-Zxj.title" = "Sichern";
 
-/* Class = "NSMenu"; title = "Game Config Zoo Tycoon"; ObjectID = "uQy-DD-JDr"; */
-"uQy-DD-JDr.title" = "Game Config Zoo Tycoon";
+/* Class = "NSMenu"; title = "Game Config SimCity 4"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "Game Config SimCity 4";
 
 /* Class = "NSTextFieldCell"; title = "Width"; ObjectID = "V2u-ye-3ft"; */
 "V2u-ye-3ft.title" = "Breite";
