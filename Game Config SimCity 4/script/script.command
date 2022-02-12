@@ -175,6 +175,12 @@ function _save_config()
     game_exe="/GOG Games/SimCity 4 Deluxe Edition/Apps/SimCity 4.exe"
     /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
     
+    if [[ "$retina" = "1" ]]; then
+        sed -ib 's/.*RetinaMode.*/"RetinaMode"="Y"/g' "Contents/Resources/user.reg"
+    else
+        sed -ib 's/.*RetinaMode.*/"RetinaMode"="N"/g' "Contents/Resources/user.reg"
+    fi
+    
 }
 
 $1
