@@ -43,7 +43,7 @@ class ViewController: NSViewController {
             self.custom.isEnabled = false
             self.fullscreen.isEnabled = false
             self.retina_mode.isEnabled = false
-            self.colored.isEnabled = false
+            //self.colored.isEnabled = false
             self.open_c.isEnabled = false
             self.load_exe.isEnabled = false
             self.save_bt.isEnabled = false
@@ -54,7 +54,7 @@ class ViewController: NSViewController {
             self.custom.isEnabled = true
             self.fullscreen.isEnabled = true
             self.retina_mode.isEnabled = true
-            self.colored.isEnabled = true
+            //self.colored.isEnabled = true
             self.open_c.isEnabled = true
             self.load_exe.isEnabled = true
             self.save_bt.isEnabled = true

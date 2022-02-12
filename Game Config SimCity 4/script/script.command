@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-gamename="zootycoon"
+gamename="simcity4"
 
 function _helpDefaultRead()
 {
@@ -26,8 +26,8 @@ ScriptHome=$(echo $HOME)
 MY_PATH="`dirname \"$0\"`"
 cd "$MY_PATH"
 
-cd ../../../../Zoo\ Tycoon.app
-ini="Contents/Resources/drive_c/Program Files/Microsoft Games/Zoo Tycoon/zoo.ini"
+cd ../../../../SimCity\ 4.app
+plist="Contents/Info.plist"
 
 wrapperpath=$( PWD )
 _helpDefaultWrite "WrapperPath" "$wrapperpath"
@@ -35,7 +35,7 @@ _helpDefaultWrite "WrapperPath" "$wrapperpath"
 function _check_for_game()
 {
 
-    if [ -d "Contents/Resources/drive_c/Program Files/Microsoft Games/Zoo Tycoon/XPACK2" ]; then
+    if [ -d "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/Apps" ]; then
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameInstalled" -bool TRUE
     else
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameInstalled" -bool FALSE
@@ -54,25 +54,9 @@ function _open_wineskin()
 function _play()
 {
     
-    cd "$MY_PATH"
-    cd ../../../..
+    open "../SimCity 4.app"
     
-    if [ ! -d /Volumes/MARINE ]; then
-        hdiutil mount "Zoo Tycoon.app/MARINE.iso" >/dev/null 2>&1
-    fi
     
-    open -a "Zoo Tycoon.app"
-    
-    #sleep 10
-
-    #if [ -d /Volumes/ZOO_TYCN ]; then
-    #    hdiutil eject /Volumes/ZOO_TYCN
-    #fi
-
-    #if [ -d /Volumes/MARINE ]; then
-    #    hdiutil eject /Volumes/MARINE
-    #fi
-
 }
 
 function _save_config()
@@ -83,7 +67,6 @@ function _save_config()
     height=$( _helpDefaultRead "Height" )
     fullscreen=$( _helpDefaultRead "Fullscreen" )
     retina=$( _helpDefaultRead "Retina" )
-    coloredmouse=$( _helpDefaultRead "ColoredMouse" )
     
     if [[ "$custom" = "1" ]]; then
         width="$width" height="$height"
@@ -137,6 +120,20 @@ function _save_config()
         #####################################
     fi
     
+    if [[ "$fullscreen" = "1" ]]; then
+        cmd1="-f"
+    else
+        cmd1="-w"
+    fi
+    
+    echo "$width" > /private/tmp/yo
+    
+    flag="$cmd1 -CustomResolution:enabled -r"$width"x"$height"x32"
+    
+    /usr/libexec/PlistBuddy -c "Set Program\ Flags $flag" "$plist"
+    
+    exit
+    
     sed -ib "s/screenwidth.*/screenwidth=$width/g" "$ini"
     sed -ib "s/screenheight.*/screenheight=$height/g" "$ini"
     
@@ -152,12 +149,6 @@ function _save_config()
         sed -ib 's/.*RetinaMode.*/"RetinaMode"="Y"/g' "Contents/Resources/user.reg"
     else
         sed -ib 's/.*RetinaMode.*/"RetinaMode"="N"/g' "Contents/Resources/user.reg"
-    fi
-    
-    if [[ "$coloredmouse" = "1" ]]; then
-        sed -ib "s/useAlternateCursors.*/useAlternateCursors=1/g" "$ini"
-    else
-        sed -ib "s/useAlternateCursors.*/useAlternateCursors=0/g" "$ini"
     fi
 }
 
