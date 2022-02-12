@@ -52,7 +52,7 @@ function _setup_exe()
    
     echo "\"Z:$setup_exe\"" > Contents/Resources/drive_c/preinstall.bat
     open "../SimCity 4.app"
-    sleep 5
+    sleep 10
     cd ..
     
     wine_pid=$( ps -A | grep "preinstall.bat" | grep -v grep | awk '{print $1}' )

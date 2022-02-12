@@ -218,7 +218,7 @@ class ViewController: NSViewController {
                 
                 let alert = NSAlert()
                 alert.messageText = NSLocalizedString("Read before proceed!", comment: "")
-                alert.informativeText = NSLocalizedString("When the installation in Windows has been completed, close the setup program. Don't open the game just yet!\n\n Restart the Game Config app and you're ready to go.", comment: "")
+                alert.informativeText = NSLocalizedString("When the installation in Windows has been completed, close the setup program. Don't open the game just yet!\n\nThe Game Config app will restart automatic and than you can press \"Play\"", comment: "")
                 alert.alertStyle = .informational
                 alert.icon = NSImage(named: "NSError")
                 let Button = NSLocalizedString("Ok", comment: "")
