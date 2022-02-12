@@ -358,11 +358,11 @@
             <objects>
                 <viewController title="Shortcuts" id="eud-Bz-Say" sceneMemberID="viewController">
                     <view key="view" id="fKe-IT-M9o">
-                        <rect key="frame" x="0.0" y="0.0" width="786" height="559"/>
+                        <rect key="frame" x="0.0" y="0.0" width="786" height="576"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5g7-ZN-SQ0">
-                                <rect key="frame" x="-2" y="514" width="790" height="35"/>
+                                <rect key="frame" x="-2" y="531" width="790" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Game Shortcuts" id="RNY-mG-KIk">
                                     <font key="font" metaFont="system" size="30"/>
@@ -370,12 +370,28 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L0L-zY-MIp">
+                                <rect key="frame" x="20" y="37" width="746" height="481"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Keyboard" id="r6J-0w-eeN"/>
+                            </imageView>
+                            <box fixedFrame="YES" boxType="custom" borderWidth="4" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="bM6-t6-fhc">
+                                <rect key="frame" x="32" y="33" width="721" height="489"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="J1P-71-j2i">
+                                    <rect key="frame" x="4" y="4" width="713" height="481"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </box>
                         </subviews>
                     </view>
                 </viewController>
                 <customObject id="qsf-gQ-tHM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585" y="817.5"/>
+            <point key="canvasLocation" x="585" y="826"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Keyboard" width="1152" height="776"/>
+    </resources>
 </document>
