@@ -48,9 +48,16 @@ function _setup_exe()
 {
 
     setup_exe=$( _helpDefaultRead "SetupExe" )
-    #/usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $setup_exe" "$plist"
+    setup_pid=$( _helpDefaultRead "SetupPID" )
+   
     echo "\"Z:$setup_exe\"" > Contents/Resources/drive_c/preinstall.bat
     open "../SimCity 4.app"
+    sleep 5
+    cd ..
+    
+    wine_pid=$( ps -A | grep "preinstall.bat" | grep -v grep | awk '{print $1}' )
+    lsof -p $wine_pid +r 1 &>/dev/null
+    kill -kill "$setup_pid" && open Game\ Config*.app
 
 }
 
@@ -85,6 +92,7 @@ function _run_check()
     else
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool FALSE
     fi
+
 }
 
 function _kill_wine()

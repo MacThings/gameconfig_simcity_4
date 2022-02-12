@@ -212,6 +212,10 @@ class ViewController: NSViewController {
             let result = dialog.url // Pathname of the file
             
             if (result != nil) {
+                let pid: Int32 = ProcessInfo.processInfo.processIdentifier
+                let pid2 = String(pid)
+                UserDefaults.standard.set(pid2, forKey: "SetupPID")
+                
                 let alert = NSAlert()
                 alert.messageText = NSLocalizedString("Read before proceed!", comment: "")
                 alert.informativeText = NSLocalizedString("When the installation in Windows has been completed, close the setup program. Don't open the game just yet!\n\n Restart the Game Config app and you're ready to go.", comment: "")
@@ -224,7 +228,12 @@ class ViewController: NSViewController {
                 let path = result!.path
                 let dlpath = (path as String)
                 UserDefaults.standard.set(dlpath, forKey: "SetupExe")
-                syncShellExec(path: scriptPath, args: ["_setup_exe"])
+                
+                DispatchQueue.global(qos: .background).async {
+                    self.syncShellExec(path: self.scriptPath, args: ["_setup_exe"])
+                        DispatchQueue.main.async {
+                    }
+                }
             }
         } else {
             // User clicked on "Cancel"
