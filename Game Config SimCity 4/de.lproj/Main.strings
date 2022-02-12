@@ -133,3 +133,9 @@
 /* Class = "NSButtonCell"; title = "Install Game"; ObjectID = "zB1-hO-ZjY"; */
 "zB1-hO-ZjY.title" = "Spiel installieren";
 
+
+/* Class = "NSButtonCell"; title = "Change Language"; ObjectID = "4Fr-1p-HM6"; */
+"4Fr-1p-HM6.title" = "Sprache ändern";
+
+/* Class = "NSButtonCell"; title = "Running ..."; ObjectID = "bOc-iy-IaJ"; */
+"bOc-iy-IaJ.title" = "\n\n\ \ \ \ \ \ \ \ \ Läuft ...";
