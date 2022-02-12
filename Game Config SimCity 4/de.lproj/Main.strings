@@ -1,0 +1,135 @@
+/* Class = "NSButtonCell"; title = "Play"; ObjectID = "0ah-lA-Ghl"; */
+"0ah-lA-Ghl.title" = "Spielen";
+
+/* Class = "NSMenuItem"; title = "800 x 600"; ObjectID = "0bx-GB-wM8"; */
+"0bx-GB-wM8.title" = "800 x 600";
+
+/* Class = "NSMenuItem"; title = "Game Config Zoo Tycoon"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "Game Config Zoo Tycoon";
+
+/* Class = "NSMenuItem"; title = "Quit Game Config Zoo Tycoon"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit Game Config Zoo Tycoon";
+
+/* Class = "NSMenuItem"; title = "About Game Config Zoo Tycoon"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "Über Game Config Zoo Tycoon";
+
+/* Class = "NSMenuItem"; title = "1440 x 1080"; ObjectID = "5uv-R4-Orv"; */
+"5uv-R4-Orv.title" = "1440 x 1080";
+
+/* Class = "NSButtonCell"; title = "Quit"; ObjectID = "6I1-RM-05Q"; */
+"6I1-RM-05Q.title" = "Beenden";
+
+/* Class = "NSButtonCell"; title = "Fullscreen"; ObjectID = "7de-ex-7Kl"; */
+"7de-ex-7Kl.title" = "Vollbild";
+
+/* Class = "NSMenuItem"; title = "2560 x 1600"; ObjectID = "8ny-K9-STa"; */
+"8ny-K9-STa.title" = "2560 x 1600";
+
+/* Class = "NSMenuItem"; title = "1024 x 576"; ObjectID = "8sR-OZ-sJD"; */
+"8sR-OZ-sJD.title" = "1024 x 576";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSButtonCell"; title = "Retina Mode"; ObjectID = "b9H-eB-Y5L"; */
+"b9H-eB-Y5L.title" = "Retina Modus";
+
+/* Class = "NSButtonCell"; title = "Load .exe"; ObjectID = "CMy-Gu-jFC"; */
+"CMy-Gu-jFC.title" = "Lade .exe";
+
+/* Class = "NSButtonCell"; title = "Custom:"; ObjectID = "cpy-B6-fbA"; */
+"cpy-B6-fbA.title" = "Eigene:";
+
+/* Class = "NSTextFieldCell"; title = "Complete Collection"; ObjectID = "d3b-24-AoI"; */
+"d3b-24-AoI.title" = "Complete Collection";
+
+/* Class = "NSMenuItem"; title = "1366 x 768"; ObjectID = "DER-jD-6jH"; */
+"DER-jD-6jH.title" = "1366 x 768";
+
+/* Class = "NSMenuItem"; title = "1680 x 1050"; ObjectID = "dq1-8t-RK6"; */
+"dq1-8t-RK6.title" = "1680 x 1050";
+
+/* Class = "NSMenuItem"; title = "1280 x 960"; ObjectID = "E2b-yq-lJt"; */
+"E2b-yq-lJt.title" = "1280 x 960";
+
+/* Class = "NSMenuItem"; title = "1920 x 1080"; ObjectID = "EFB-Hx-rGl"; */
+"EFB-Hx-rGl.title" = "1920 x 1080";
+
+/* Class = "NSTextFieldCell"; title = "X"; ObjectID = "EkC-FA-fct"; */
+"EkC-FA-fct.title" = "X";
+
+/* Class = "NSViewController"; title = "Shortcuts"; ObjectID = "eud-Bz-Say"; */
+"eud-Bz-Say.title" = "Tastaturkürzel";
+
+/* Class = "NSButtonCell"; title = "Open C:"; ObjectID = "F5b-Mx-eEb"; */
+"F5b-Mx-eEb.title" = "Öffne C:";
+
+/* Class = "NSMenuItem"; title = "1600 x 1200"; ObjectID = "fGe-h4-KNy"; */
+"fGe-h4-KNy.title" = "1600 x 1200";
+
+/* Class = "NSMenuItem"; title = "1400 x 1050"; ObjectID = "fi6-hW-bFS"; */
+"fi6-hW-bFS.title" = "1400 x 1050";
+
+/* Class = "NSMenuItem"; title = "1440 x 900"; ObjectID = "hOa-dq-s5u"; */
+"hOa-dq-s5u.title" = "1440 x 900";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "Fenster";
+
+/* Class = "NSMenuItem"; title = "1280 x 800"; ObjectID = "kyQ-6X-DeG"; */
+"kyQ-6X-DeG.title" = "1280 x 800";
+
+/* Class = "NSTextFieldCell"; title = "Resolution"; ObjectID = "lbL-bH-tbW"; */
+"lbL-bH-tbW.title" = "Auflösung";
+
+/* Class = "NSMenuItem"; title = "1600 x 900"; ObjectID = "ljV-eB-TgE"; */
+"ljV-eB-TgE.title" = "1600 x 900";
+
+/* Class = "NSMenuItem"; title = "1024 x 768"; ObjectID = "Pur-e0-6bm"; */
+"Pur-e0-6bm.title" = "1024 x 768";
+
+/* Class = "NSMenuItem"; title = "1280 x 720"; ObjectID = "QzN-VH-rMy"; */
+"QzN-VH-rMy.title" = "1280 x 720";
+
+/* Class = "NSTextFieldCell"; title = "Game Shortcuts"; ObjectID = "RNY-mG-KIk"; */
+"RNY-mG-KIk.title" = "Tastaturkürzel";
+
+/* Class = "NSTextFieldCell"; title = "Ctrl + B\nCtrl + F\nCtrl + V\nCtrl + G\nCtrl + S\nCtrl + L\nCtrl + ←\nCtrl + →\nCtrl + ↑ \nCtrl + ↓ \nSpace\n+\n-\nDel\nBackspace\nC\nD\nH\nB\nM\nF\nO\nZ\nG\nE\nA\nS"; ObjectID = "rWq-de-mlS"; */
+"rWq-de-mlS.title" = "Strg + B\nStrg + F\nStrg + V\nStrg + G\nStrg + S\nStrg + L\nStrg + ←\nStrg + →\nStrg + ↑ \nStrg + ↓ \nLeertaste\n+\n-\nEntf\nBackspace\nC\nD\nH\nB\nM\nF\nO\nZ\nG\nE\nA\nS";
+
+/* Class = "NSMenuItem"; title = "1152 x 648"; ObjectID = "s1h-Lk-ywi"; */
+"s1h-Lk-ywi.title" = "1152 x 648";
+
+/* Class = "NSButtonCell"; title = "Colored Mouse"; ObjectID = "sPN-tb-8VR"; */
+"sPN-tb-8VR.title" = "Farbiger Zeiger";
+
+/* Class = "NSButtonCell"; title = "Save"; ObjectID = "ST9-cU-Zxj"; */
+"ST9-cU-Zxj.title" = "Sichern";
+
+/* Class = "NSMenu"; title = "Game Config Zoo Tycoon"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "Game Config Zoo Tycoon";
+
+/* Class = "NSTextFieldCell"; title = "Width"; ObjectID = "V2u-ye-3ft"; */
+"V2u-ye-3ft.title" = "Breite";
+
+/* Class = "NSMenuItem"; title = "3840 x 2160"; ObjectID = "VbW-zO-LB8"; */
+"VbW-zO-LB8.title" = "3840 x 2160";
+
+/* Class = "NSTextFieldCell"; title = "Height"; ObjectID = "vhw-tN-dMH"; */
+"vhw-tN-dMH.title" = "Höhe";
+
+/* Class = "NSViewController"; title = "Guide"; ObjectID = "waH-il-yMc"; */
+"waH-il-yMc.title" = "Guide";
+
+/* Class = "NSMenuItem"; title = "2560 x 1440"; ObjectID = "xxc-Gl-7YS"; */
+"xxc-Gl-7YS.title" = "2560 x 1440";
+
+/* Class = "NSMenuItem"; title = "1920 x 1200"; ObjectID = "Y71-zQ-nt7"; */
+"Y71-zQ-nt7.title" = "1920 x 1200";
+
+/* Class = "NSTextFieldCell"; title = "Hide/Show Buildings\nHide/Show Foliage (Ground,Water,Etc.)\nHide/Show Guests\nHide/Show Grid\nSave a Game\nLoad a Saved Game\nRotate Counter-Clockwise\nRotate Clockwise\nZoom In\nZoom Out\nPause/Resume Game\nIncrease Grid\nDecrease Grid\nClear\nUndo\nConstruct Exhibit\nAdopt Animal\nHire Staff\nBuy Buildings/Objects\nShow Messages\nDisplay File Options\nDisplay Scenario Objectives\nDisplay Zoo Status\nDisplay Guest Info\nDisplay Exhibit Info\nDisplay Animal Info\nDisplay Staff Info"; ObjectID = "Yna-n7-uiv"; */
+"Yna-n7-uiv.title" = "Verstecke/Zeige Gebäude\nVerstecke/Zeige Gelände (Wasser,Bäume,Etc.)\nVerstecke/Zeige Besucher\nVerstecke/Zeige Gitter\nSpiel speichern\nSpiel laden\nNach links drehen\nNach rechts drehen\nHereinzoomen\nHerauszoomen\nSpiel pausieren/fortsetzen\nGitter vergrößern\nGitter verkleinern\nLöschen\nWiederherstellen\nGehege erstellen\nTiere kaufen\nPersonal anwerben\nGebäude/Objekte kaufen\nNachrichten zeigen\nDateioptionen zeigen\nSpielziel zeigen\nZoostatus anzeigen\nBesucherinfo anzeigen\nGehegeinfo anzeigen\nTierinfo anzeigen\nPersonalinfo anzeigen";
+
+/* Class = "NSButtonCell"; title = "Install Game"; ObjectID = "zB1-hO-ZjY"; */
+"zB1-hO-ZjY.title" = "Spiel installieren";
+
