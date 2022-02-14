@@ -57,6 +57,16 @@ function _setup_exe()
     
     wine_pid=$( ps -A | grep "preinstall.bat" | grep -v grep | awk '{print $1}' )
     lsof -p $wine_pid +r 1 &>/dev/null
+    
+    width=$( _helpDefaultRead "Width" )
+    height=$( _helpDefaultRead "Height" )
+    
+    flag="-w -CustomResolution:enabled -r"$width"x"$height"x32"
+    /usr/libexec/PlistBuddy -c "Set Program\ Flags $flag" "$plist"
+    
+    game_exe="/GOG Games/SimCity 4 Deluxe Edition/Apps/SimCity 4.exe"
+    /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
+    
     kill -kill "$setup_pid" && open Game\ Config*.app
 
 }
