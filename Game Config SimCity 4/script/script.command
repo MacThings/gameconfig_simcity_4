@@ -55,7 +55,7 @@ function _setup_exe()
     sleep 10
     cd ..
     
-    wine_pid=$( ps -A | grep "preinstall.bat" | grep -v grep | awk '{print $1}' | head -n 1 )
+    wine_pid=$( ps -A |grep "preinstall.bat" |grep -v grep |awk '{print $1}' |head -n 1 )
     lsof -p $wine_pid +r 1 &>/dev/null
     
     width=$( _helpDefaultRead "Width" )
