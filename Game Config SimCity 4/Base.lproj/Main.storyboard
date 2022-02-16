@@ -332,20 +332,8 @@
                                     <action selector="language:" target="XfG-lQ-9wD" id="DCD-si-Vmk"/>
                                 </connections>
                             </button>
-                            <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-nA-ghC">
-                                <rect key="frame" x="220" y="-16" width="273" height="239"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" selectable="YES" alignment="left" drawsBackground="YES" id="bOc-iy-IaJ">
-                                    <font key="font" metaFont="system" size="40"/>
-                                    <string key="title" base64-UTF8="YES">
-AwMDA+KAqOKAqCAgICAgIANSdW5uaW5nIC4uLg
-</string>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOc-36-gzy">
-                                <rect key="frame" x="27" y="115" width="127" height="18"/>
+                                <rect key="frame" x="27" y="115" width="175" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Do not play Intro" bezelStyle="regularSquare" imagePosition="left" inset="2" id="FKg-5f-j4b">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -356,6 +344,18 @@ AwMDA+KAqOKAqCAgICAgIANSdW5uaW5nIC4uLg
                                     <binding destination="uZ2-S1-ZsI" name="value" keyPath="values.Intro" id="3XK-ld-QLz"/>
                                 </connections>
                             </button>
+                            <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-nA-ghC">
+                                <rect key="frame" x="0.0" y="-2" width="273" height="239"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="left" drawsBackground="YES" id="bOc-iy-IaJ">
+                                    <font key="font" metaFont="system" size="40"/>
+                                    <string key="title" base64-UTF8="YES">
+AwMDA+KAqOKAqCAgICAgIANSdW5uaW5nIC4uLg
+</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
