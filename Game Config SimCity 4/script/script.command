@@ -53,7 +53,7 @@ function _setup_exe()
     echo "\"Z:$setup_exe\"" > Contents/Resources/drive_c/preinstall.bat
     open "../SimCity 4.app"
     sleep 10
-    cd ..
+    #cd ..
     
     wine_pid=$( ps -A |grep "preinstall.bat" |grep -v grep |awk '{print $1}' |head -n 1 )
     lsof -p $wine_pid +r 1 &>/dev/null
@@ -67,7 +67,7 @@ function _setup_exe()
     game_exe="/GOG Games/SimCity 4 Deluxe Edition/Apps/SimCity 4.exe"
     /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
     
-    kill -kill "$setup_pid" && open Game\ Config*.app
+    kill -kill "$setup_pid" && open ../Game\ Config*.app
 
 }
 
@@ -119,6 +119,7 @@ function _save_config()
     width=$( _helpDefaultRead "Width" )
     height=$( _helpDefaultRead "Height" )
     fullscreen=$( _helpDefaultRead "Fullscreen" )
+    intro=$( _helpDefaultRead "Intro" )
     retina=$( _helpDefaultRead "Retina" )
     
     if [[ "$custom" = "1" ]]; then
@@ -179,7 +180,11 @@ function _save_config()
         cmd1="-w"
     fi
     
-    flag="$cmd1 -CustomResolution:enabled -r"$width"x"$height"x32"
+    if [[ "$intro" = "1" ]]; then
+        cmd2="-intro:off"
+    fi
+    
+    flag="$cmd1 -CustomResolution:enabled -r"$width"x"$height"x32 $cmd2"
     /usr/libexec/PlistBuddy -c "Set Program\ Flags $flag" "$plist"
     
     game_exe="/GOG Games/SimCity 4 Deluxe Edition/Apps/SimCity 4.exe"

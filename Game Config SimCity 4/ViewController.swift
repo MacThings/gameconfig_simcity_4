@@ -17,6 +17,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var custom: NSButton!
     @IBOutlet weak var fullscreen: NSButton!
     @IBOutlet weak var retina_mode: NSButton!
+    @IBOutlet weak var play_intro: NSButton!
     
     @IBOutlet weak var open_c: NSButton!
     @IBOutlet weak var load_exe: NSButton!
@@ -46,6 +47,7 @@ class ViewController: NSViewController {
             self.custom.isEnabled = false
             self.fullscreen.isEnabled = false
             self.retina_mode.isEnabled = false
+            self.play_intro.isEnabled = false
             self.change_language.isEnabled = false
             self.open_c.isEnabled = false
             self.load_exe.isEnabled = false
@@ -57,6 +59,7 @@ class ViewController: NSViewController {
             self.custom.isEnabled = true
             self.fullscreen.isEnabled = true
             self.retina_mode.isEnabled = true
+            self.play_intro.isEnabled = true
             self.change_language.isEnabled = true
             self.open_c.isEnabled = true
             self.load_exe.isEnabled = true
@@ -82,6 +85,11 @@ class ViewController: NSViewController {
             UserDefaults.standard.set("600", forKey: "Height")
             res_selector.selectItem(withTag: 2)
             UserDefaults.standard.set("2", forKey: "Resolution")
+        }
+        
+        let intro = UserDefaults.standard.string(forKey: "Intro")
+        if intro == nil{
+            UserDefaults.standard.set(false, forKey: "Intro")
         }
         
     }
@@ -169,10 +177,11 @@ class ViewController: NSViewController {
         self.save_bt.bezelColor = NSColor.red
     }
     
-    @IBAction func colored_activity(_ sender: Any) {
+    @IBAction func play_intro_activity(_ sender: Any) {
         self.play_bt.isEnabled = false
         self.save_bt.bezelColor = NSColor.red
     }
+    
     
     @IBAction func width_activity(_ sender: Any) {
         self.play_bt.isEnabled = false
