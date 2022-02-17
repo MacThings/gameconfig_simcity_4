@@ -51,6 +51,7 @@ function _setup_exe()
     setup_pid=$( _helpDefaultRead "SetupPID" )
    
     echo "\"Z:$setup_exe\"" > Contents/Resources/drive_c/preinstall.bat
+    echo "\"C:\\4gb_patch.exe\" \"C:\\GOG Games\\SimCity 4 Deluxe Edition\\Apps\\SimCity 4.exe\"" >> Contents/Resources/drive_c/preinstall.bat
     open "../SimCity 4.app"
     sleep 10
     #cd ..
