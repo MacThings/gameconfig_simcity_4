@@ -209,10 +209,22 @@ class ViewController: NSViewController {
     }
     
     @IBAction func quit(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "GameRunning")
+        syncShellExec(path: scriptPath, args: ["_kill_wine"])
         exit(0)
     }
     
     @IBAction func resolution_activity(_ sender: Any) {
+        self.play_bt.isEnabled = false
+        self.save_bt.bezelColor = NSColor.red
+    }
+    
+    @IBAction func cores_activity(_ sender: Any) {
+        self.play_bt.isEnabled = false
+        self.save_bt.bezelColor = NSColor.red
+    }
+    
+    @IBAction func priority_activity(_ sender: Any) {
         self.play_bt.isEnabled = false
         self.save_bt.bezelColor = NSColor.red
     }
@@ -250,8 +262,8 @@ class ViewController: NSViewController {
     }
     
     @IBAction func autosave_fieldactivity(_ sender: Any) {
-        self.play_bt.isEnabled = false
-        self.save_bt.bezelColor = NSColor.red
+        //self.play_bt.isEnabled = false
+        //self.save_bt.bezelColor = NSColor.red
     }
     
     @IBAction func autosave_stepper_activity(_ sender: Any) {

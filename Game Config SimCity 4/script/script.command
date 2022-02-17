@@ -130,6 +130,7 @@ function _run_check()
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool TRUE
     else
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool FALSE
+        pkill -9 -f "autosave."
     fi
 
 }
@@ -144,8 +145,8 @@ function _kill_autosave()
 function _kill_wine()
 {
 
-    pkill -f "SimCity 4.exe"
-    pkill -f "autosave.exe"
+    pkill -9 -f "SimCity 4.exe"
+    pkill -9 -f "autosave."
     
 }
 
@@ -161,6 +162,9 @@ function _save_config()
     intro=$( _helpDefaultRead "Intro" )
     retina=$( _helpDefaultRead "Retina" )
     autosave=$( _helpDefaultRead "Autosave" )
+    
+    saveinterval=$( _helpDefaultRead "SaveInterval" )
+    saveinterval=$( echo "$saveinterval" | sed -e 's/\..*//g' -e 's/,.*//g' )
     
     if [[ "$custom" = "1" ]]; then
         width="$width" height="$height"
@@ -240,8 +244,9 @@ function _save_config()
     if [[ "$autosave" = "0" ]]; then
         echo "start \"\" \"C:\\GOG Games\\SimCity 4 Deluxe Edition\\Apps\\SimCity 4.exe\" $flag" > "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
     else
-        echo "start \"\" \"C:\\GOG Games\\SimCity 4 Deluxe Edition\\Apps\\SimCity 4.exe\" $flag" > "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
-        echo "start \"\" \"C:\\GOG Games\\SimCity 4 Deluxe Edition\\autosave.exe\"" >> "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
+        echo "cd \"C:\\GOG Games\\SimCity 4 Deluxe Edition\"" > "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
+        echo "start \"\" \"Apps\\SimCity 4.exe\" $flag" >> "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
+        echo "start \"\" autosave $saveinterval" >> "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
     fi
     
     

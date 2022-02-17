@@ -133,5 +133,20 @@
 /* Class = "NSButtonCell"; title = "Do not play Intro"; ObjectID = "FKg-5f-j4b"; */
 "FKg-5f-j4b.title" = "Intro überspringen";
 
+/* Class = "NSButtonCell"; title = "Autosave"; ObjectID = "EeE-Oz-8dg"; */
+"EeE-Oz-8dg.title" = "Autospeichern";
 
+/* Class = "NSButtonCell"; title = "Interval (Minutes)"; ObjectID = "zDc-Ma-RTb"; */
+"zDc-Ma-RTb.title" = "Intervall (Minuten)";
 
+/* Class = "NSButtonCell"; title = "CPU Cores"; ObjectID = "m6E-JM-xf4"; */
+"m6E-JM-xf4.title" = "CPU Kerne";
+
+/* Class = "NSButtonCell"; title = "Priority"; ObjectID = "lTU-x1-hxO"; */
+"lTU-x1-hxO.title" = "Priorität";
+
+/* Class = "NSButtonCell"; title = "Low"; ObjectID = "5NN-C3-Z22"; */
+"5NN-C3-Z22.title" = "Niedrig";
+
+/* Class = "NSButtonCell"; title = "High"; ObjectID = "DOK-SG-0Lw"; */
+"DOK-SG-0Lw.title" = "Hoch";
