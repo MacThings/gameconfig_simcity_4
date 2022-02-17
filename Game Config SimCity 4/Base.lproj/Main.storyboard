@@ -392,6 +392,7 @@ AwMDA+KAqOKAqCAgICAgIANSdW5uaW5nIC4uLg
                                     </menu>
                                 </popUpButtonCell>
                                 <connections>
+                                    <action selector="priority_activity:" target="XfG-lQ-9wD" id="KsW-Sl-YuL"/>
                                     <binding destination="uZ2-S1-ZsI" name="selectedTag" keyPath="values.Priority" id="9eQ-dM-Be2"/>
                                 </connections>
                             </popUpButton>

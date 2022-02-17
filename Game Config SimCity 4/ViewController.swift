@@ -333,6 +333,8 @@ class ViewController: NSViewController {
         self.cpu_cores.item(withTitle: "")?.isHidden=true
         let selected_cores = self.cpu_cores.titleOfSelectedItem
         UserDefaults.standard.set(selected_cores, forKey: "SelectedCores")
+        self.play_bt.isEnabled = false
+        self.save_bt.bezelColor = NSColor.red
     }
     
     func syncShellExec(path: String, args: [String] = []) {
