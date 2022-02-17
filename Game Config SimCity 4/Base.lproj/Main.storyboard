@@ -87,7 +87,7 @@
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXS-Hh-OM3">
                                 <rect key="frame" x="114" y="206" width="133" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="800 x 600" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" tag="2" inset="2" selectedItem="0bx-GB-wM8" id="BJN-aY-7Gr">
+                                <popUpButtonCell key="cell" type="push" title="800 x 600" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" tag="2" inset="2" selectedItem="0bx-GB-wM8" id="BJN-aY-7Gr">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="NLj-id-lOD">
@@ -335,7 +335,7 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOc-36-gzy">
                                 <rect key="frame" x="27" y="115" width="175" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Do not play Intro" bezelStyle="regularSquare" imagePosition="left" inset="2" id="FKg-5f-j4b">
+                                <buttonCell key="cell" type="check" title="Do not play Intro" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="FKg-5f-j4b">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
