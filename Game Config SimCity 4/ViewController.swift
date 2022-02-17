@@ -10,6 +10,10 @@ import AVFoundation
 
 class ViewController: NSViewController {
 
+  
+    @IBOutlet weak var cpu_cores: NSPopUpButton!
+    @IBOutlet weak var priority: NSPopUpButton!
+    
     @IBOutlet weak var res_selector: NSPopUpButton!
     @IBOutlet weak var width: NSTextField!
     @IBOutlet weak var height: NSTextField!
@@ -92,6 +96,30 @@ class ViewController: NSViewController {
             UserDefaults.standard.set(false, forKey: "Intro")
         }
         
+        syncShellExec(path: scriptPath, args: ["_get_cores"])
+        
+        let count_cores = NSString(string:"/private/tmp/cpucores").expandingTildeInPath
+        let fileContent = try? NSString(contentsOfFile: count_cores, encoding: String.Encoding.utf8.rawValue)
+        for (_, cores) in (fileContent?.components(separatedBy: "\n").enumerated())! {
+            self.cpu_cores.menu?.addItem(withTitle: cores, action: #selector(ViewController.menuItemClicked(_:)), keyEquivalent: "")
+        }
+        
+        let selected_cores = UserDefaults.standard.string(forKey: "SelectedCores")
+        if selected_cores == nil{
+            let cores = UserDefaults.standard.string(forKey: "PhysicalCores") ?? ""
+            cpu_cores.selectItem(withTitle:cores)
+            self.cpu_cores.item(withTitle: "")?.isHidden=true
+            UserDefaults.standard.set(cores, forKey: "SelectedCores")
+        } else {
+            cpu_cores.selectItem(withTitle:selected_cores!)
+            self.cpu_cores.item(withTitle: "")?.isHidden=true
+        }
+        
+        let priority = UserDefaults.standard.string(forKey: "Priority")
+        if priority == nil{
+            UserDefaults.standard.set("3", forKey: "Priority")
+        }
+        
     }
 
     override func viewDidAppear() {
@@ -165,7 +193,6 @@ class ViewController: NSViewController {
         self.save_bt.bezelColor = NSColor.red
     }
     
-   
     @IBAction func fullscreen_activity(_ sender: Any) {
         self.play_bt.isEnabled = false
         self.save_bt.bezelColor = NSColor.red
@@ -248,6 +275,12 @@ class ViewController: NSViewController {
             // User clicked on "Cancel"
             return
         }
+    }
+    
+    @objc func menuItemClicked(_ sender: NSMenuItem) {
+        self.cpu_cores.item(withTitle: "")?.isHidden=true
+        let selected_cores = self.cpu_cores.titleOfSelectedItem
+        UserDefaults.standard.set(selected_cores, forKey: "SelectedCores")
     }
     
     func syncShellExec(path: String, args: [String] = []) {

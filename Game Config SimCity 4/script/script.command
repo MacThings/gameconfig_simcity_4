@@ -32,6 +32,22 @@ plist="Contents/Info.plist"
 wrapperpath=$( PWD )
 _helpDefaultWrite "WrapperPath" "$wrapperpath"
 
+function _get_cores()
+{
+
+    cores=$( sysctl -n hw.ncpu )
+    _helpDefaultWrite "PhysicalCores" "$cores"
+    rm /private/tmp/cpucores
+    die() {
+        echo $cores >&2
+        exit 1;
+    }
+    for i in $(seq $cores -1 1); do
+        echo "$i" >> /private/tmp/cpucores
+    done
+
+}
+
 function _check_for_game()
 {
 
@@ -40,7 +56,6 @@ function _check_for_game()
     else
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameInstalled" -bool FALSE
     fi
-        
 
 }
 
