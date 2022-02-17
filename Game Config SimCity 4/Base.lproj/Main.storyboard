@@ -71,45 +71,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="528" height="278"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXS-Hh-OM3">
-                                <rect key="frame" x="107" y="180" width="133" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="800 x 600" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" tag="2" inset="2" selectedItem="0bx-GB-wM8" id="BJN-aY-7Gr">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="NLj-id-lOD">
-                                        <items>
-                                            <menuItem title="800 x 600" state="on" tag="2" id="0bx-GB-wM8"/>
-                                            <menuItem title="1024 x 768" tag="3" id="Pur-e0-6bm"/>
-                                            <menuItem title="1280 x 960" tag="4" id="E2b-yq-lJt"/>
-                                            <menuItem title="1400 x 1050" tag="5" hidden="YES" id="fi6-hW-bFS"/>
-                                            <menuItem title="1440 x 1080" tag="6" hidden="YES" id="5uv-R4-Orv"/>
-                                            <menuItem title="1600 x 1200" tag="7" id="fGe-h4-KNy"/>
-                                            <menuItem isSeparatorItem="YES" hidden="YES" id="yjL-ga-3ft">
-                                                <attributedString key="attributedTitle"/>
-                                            </menuItem>
-                                            <menuItem title="1024 x 576" tag="11" id="8sR-OZ-sJD"/>
-                                            <menuItem title="1152 x 648" tag="12" hidden="YES" id="s1h-Lk-ywi"/>
-                                            <menuItem title="1280 x 720" tag="13" id="QzN-VH-rMy"/>
-                                            <menuItem title="1366 x 768" tag="14" hidden="YES" id="DER-jD-6jH"/>
-                                            <menuItem title="1600 x 900" tag="15" id="ljV-eB-TgE"/>
-                                            <menuItem title="1920 x 1080" tag="16" id="EFB-Hx-rGl"/>
-                                            <menuItem title="2560 x 1440" tag="17" id="xxc-Gl-7YS"/>
-                                            <menuItem title="3840 x 2160" tag="18" id="VbW-zO-LB8"/>
-                                            <menuItem isSeparatorItem="YES" hidden="YES" id="Pjv-Zd-6AG"/>
-                                            <menuItem title="1280 x 800" tag="19" hidden="YES" id="kyQ-6X-DeG"/>
-                                            <menuItem title="1440 x 900" tag="20" hidden="YES" id="hOa-dq-s5u"/>
-                                            <menuItem title="1680 x 1050" tag="21" hidden="YES" id="dq1-8t-RK6"/>
-                                            <menuItem title="1920 x 1200" tag="22" hidden="YES" id="Y71-zQ-nt7"/>
-                                            <menuItem title="2560 x 1600" tag="23" id="8ny-K9-STa"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                                <connections>
-                                    <action selector="resolution_activity:" target="XfG-lQ-9wD" id="cU3-k9-8Dj"/>
-                                    <binding destination="uZ2-S1-ZsI" name="selectedTag" keyPath="values.Resolution" id="0ag-jv-s6W"/>
-                                </connections>
-                            </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VwV-af-UDt">
                                 <rect key="frame" x="-2" y="240" width="532" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -192,15 +153,6 @@
                                     <action selector="quit:" target="XfG-lQ-9wD" id="rvH-0E-e7f"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XPu-3o-gye">
-                                <rect key="frame" x="20" y="186" width="72" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Resolution" id="lbL-bH-tbW">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DpH-Zi-FOt">
                                 <rect key="frame" x="-2" y="223" width="532" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -318,7 +270,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6kw-Kk-Ah0">
-                                <rect key="frame" x="13" y="85" width="189" height="32"/>
+                                <rect key="frame" x="13" y="85" width="230" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Change Language" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Fr-1p-HM6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -341,9 +293,9 @@
                                 </connections>
                             </button>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PIv-R3-a1Y">
-                                <rect key="frame" x="107" y="149" width="92" height="25"/>
+                                <rect key="frame" x="107" y="178" width="133" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="ZiB-Zr-Egn">
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="ZiB-Zr-Egn">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="Y5U-M5-CdR"/>
@@ -353,7 +305,7 @@
                                 </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VN0-c2-QRU">
-                                <rect key="frame" x="18" y="156" width="75" height="16"/>
+                                <rect key="frame" x="18" y="185" width="75" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="CPU Cores" id="m6E-JM-xf4">
                                     <font key="font" metaFont="system"/>
@@ -362,7 +314,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ieF-Kk-C5Z">
-                                <rect key="frame" x="40" y="126" width="52" height="16"/>
+                                <rect key="frame" x="40" y="155" width="52" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Priority" id="lTU-x1-hxO">
                                     <font key="font" metaFont="system"/>
@@ -371,9 +323,9 @@
                                 </textFieldCell>
                             </textField>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gI1-Lp-oBb">
-                                <rect key="frame" x="107" y="118" width="92" height="25"/>
+                                <rect key="frame" x="107" y="147" width="133" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="Low" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="5NN-C3-Z22" id="uEa-ey-2jG">
+                                <popUpButtonCell key="cell" type="push" title="Low" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="5NN-C3-Z22" id="uEa-ey-2jG">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="fiQ-tk-HgT">
@@ -432,6 +384,18 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-nA-ghC">
+                                <rect key="frame" x="288" y="-94" width="528" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="left" drawsBackground="YES" id="bOc-iy-IaJ">
+                                    <font key="font" metaFont="system" size="40"/>
+                                    <string key="title" base64-UTF8="YES">
+AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
+</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <box horizontalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="DBu-hy-uuB">
                                 <rect key="frame" x="256" y="51" width="5" height="162"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -440,14 +404,50 @@
                                 <rect key="frame" x="0.0" y="45" width="528" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
-                            <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-nA-ghC">
-                                <rect key="frame" x="0.0" y="3" width="528" height="212"/>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXS-Hh-OM3">
+                                <rect key="frame" x="107" y="118" width="133" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" selectable="YES" alignment="left" drawsBackground="YES" id="bOc-iy-IaJ">
-                                    <font key="font" metaFont="system" size="40"/>
-                                    <string key="title" base64-UTF8="YES">
-AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
-</string>
+                                <popUpButtonCell key="cell" type="push" title="800 x 600" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" tag="2" inset="2" selectedItem="0bx-GB-wM8" id="BJN-aY-7Gr">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="NLj-id-lOD">
+                                        <items>
+                                            <menuItem title="800 x 600" state="on" tag="2" id="0bx-GB-wM8"/>
+                                            <menuItem title="1024 x 768" tag="3" id="Pur-e0-6bm"/>
+                                            <menuItem title="1280 x 960" tag="4" id="E2b-yq-lJt"/>
+                                            <menuItem title="1400 x 1050" tag="5" hidden="YES" id="fi6-hW-bFS"/>
+                                            <menuItem title="1440 x 1080" tag="6" hidden="YES" id="5uv-R4-Orv"/>
+                                            <menuItem title="1600 x 1200" tag="7" id="fGe-h4-KNy"/>
+                                            <menuItem isSeparatorItem="YES" hidden="YES" id="yjL-ga-3ft">
+                                                <attributedString key="attributedTitle"/>
+                                            </menuItem>
+                                            <menuItem title="1024 x 576" tag="11" id="8sR-OZ-sJD"/>
+                                            <menuItem title="1152 x 648" tag="12" hidden="YES" id="s1h-Lk-ywi"/>
+                                            <menuItem title="1280 x 720" tag="13" id="QzN-VH-rMy"/>
+                                            <menuItem title="1366 x 768" tag="14" hidden="YES" id="DER-jD-6jH"/>
+                                            <menuItem title="1600 x 900" tag="15" id="ljV-eB-TgE"/>
+                                            <menuItem title="1920 x 1080" tag="16" id="EFB-Hx-rGl"/>
+                                            <menuItem title="2560 x 1440" tag="17" id="xxc-Gl-7YS"/>
+                                            <menuItem title="3840 x 2160" tag="18" id="VbW-zO-LB8"/>
+                                            <menuItem isSeparatorItem="YES" hidden="YES" id="Pjv-Zd-6AG"/>
+                                            <menuItem title="1280 x 800" tag="19" hidden="YES" id="kyQ-6X-DeG"/>
+                                            <menuItem title="1440 x 900" tag="20" hidden="YES" id="hOa-dq-s5u"/>
+                                            <menuItem title="1680 x 1050" tag="21" hidden="YES" id="dq1-8t-RK6"/>
+                                            <menuItem title="1920 x 1200" tag="22" hidden="YES" id="Y71-zQ-nt7"/>
+                                            <menuItem title="2560 x 1600" tag="23" id="8ny-K9-STa"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="resolution_activity:" target="XfG-lQ-9wD" id="cU3-k9-8Dj"/>
+                                    <binding destination="uZ2-S1-ZsI" name="selectedTag" keyPath="values.Resolution" id="0ag-jv-s6W"/>
+                                </connections>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XPu-3o-gye">
+                                <rect key="frame" x="20" y="124" width="72" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Resolution" id="lbL-bH-tbW">
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
