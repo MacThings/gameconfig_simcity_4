@@ -130,7 +130,7 @@ function _run_check()
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool TRUE
     else
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool FALSE
-        pkill -9 -f "autosave."
+        pkill -9 -f "autosave.EXE"
     fi
 
 }
@@ -146,7 +146,7 @@ function _kill_wine()
 {
 
     pkill -9 -f "SimCity 4.exe"
-    pkill -9 -f "autosave."
+    pkill -9 -f "autosave.EXE"
     
 }
 
