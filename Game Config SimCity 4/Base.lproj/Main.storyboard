@@ -310,7 +310,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5QE-lU-VRc">
-                                <rect key="frame" x="134" y="225" width="109" height="18"/>
+                                <rect key="frame" x="137" y="225" width="109" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Retina Mode" bezelStyle="regularSquare" imagePosition="left" inset="2" id="b9H-eB-Y5L">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -333,7 +333,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOc-36-gzy">
-                                <rect key="frame" x="27" y="198" width="175" height="18"/>
+                                <rect key="frame" x="27" y="198" width="133" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Do not play Intro" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="FKg-5f-j4b">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -392,6 +392,17 @@ AwMDA+KAqOKAqCAgICAgIANSdW5uaW5nIC4uLg
                                     <binding destination="uZ2-S1-ZsI" name="selectedTag" keyPath="values.Priority" id="9eQ-dM-Be2"/>
                                 </connections>
                             </popUpButton>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQV-Wc-Afp">
+                                <rect key="frame" x="165" y="198" width="82" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Autosave" bezelStyle="regularSquare" imagePosition="left" inset="2" id="EeE-Oz-8dg">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <binding destination="uZ2-S1-ZsI" name="value" keyPath="values.Autosave" id="TBw-VL-Jjs"/>
+                                </connections>
+                            </button>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PIv-R3-a1Y">
                                 <rect key="frame" x="114" y="327" width="92" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -404,6 +415,7 @@ AwMDA+KAqOKAqCAgICAgIANSdW5uaW5nIC4uLg
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="autosave" destination="TQV-Wc-Afp" id="pXc-dy-yZN"/>
                         <outlet property="change_language" destination="6kw-Kk-Ah0" id="EeV-va-blE"/>
                         <outlet property="cpu_cores" destination="PIv-R3-a1Y" id="yrE-Jb-EKL"/>
                         <outlet property="custom" destination="zQS-bd-grQ" id="Shj-3x-pNM"/>

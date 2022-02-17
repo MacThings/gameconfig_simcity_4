@@ -22,6 +22,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var fullscreen: NSButton!
     @IBOutlet weak var retina_mode: NSButton!
     @IBOutlet weak var play_intro: NSButton!
+    @IBOutlet weak var autosave: NSButton!
     
     @IBOutlet weak var open_c: NSButton!
     @IBOutlet weak var load_exe: NSButton!
@@ -52,6 +53,7 @@ class ViewController: NSViewController {
             self.fullscreen.isEnabled = false
             self.retina_mode.isEnabled = false
             self.play_intro.isEnabled = false
+            self.autosave.isEnabled = false
             self.change_language.isEnabled = false
             self.open_c.isEnabled = false
             self.load_exe.isEnabled = false
@@ -64,6 +66,7 @@ class ViewController: NSViewController {
             self.fullscreen.isEnabled = true
             self.retina_mode.isEnabled = true
             self.play_intro.isEnabled = true
+            self.autosave.isEnabled = true
             self.change_language.isEnabled = true
             self.open_c.isEnabled = true
             self.load_exe.isEnabled = true
@@ -118,6 +121,11 @@ class ViewController: NSViewController {
         let priority = UserDefaults.standard.string(forKey: "Priority")
         if priority == nil{
             UserDefaults.standard.set("3", forKey: "Priority")
+        }
+        
+        let autosave = UserDefaults.standard.string(forKey: "Autosave")
+        if autosave == nil{
+            UserDefaults.standard.set(false, forKey: "Autosave")
         }
         
     }
@@ -227,6 +235,7 @@ class ViewController: NSViewController {
             play_bt.isEnabled = false
             disabler.isHidden = false
         } else {
+            syncShellExec(path: scriptPath, args: ["_kill_autosave"])
             play_bt.isEnabled = true
             disabler.isHidden = true
         }

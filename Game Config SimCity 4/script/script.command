@@ -64,23 +64,36 @@ function _setup_exe()
 
     setup_exe=$( _helpDefaultRead "SetupExe" )
     setup_pid=$( _helpDefaultRead "SetupPID" )
-   
-    echo "\"Z:$setup_exe\"" > Contents/Resources/drive_c/preinstall.bat
-    echo "\"C:\\4gb_patch.exe\" \"C:\\GOG Games\\SimCity 4 Deluxe Edition\\Apps\\SimCity 4.exe\"" >> Contents/Resources/drive_c/preinstall.bat
+
+    echo "\"Z:$setup_exe\"" > "Contents/Resources/drive_c/preinstall.bat"
+    echo "\"C:\\4gb_patch.exe\" \"C:\\GOG Games\\SimCity 4 Deluxe Edition\\Apps\\SimCity 4.exe\"" >> "Contents/Resources/drive_c/preinstall.bat"
     open "../SimCity 4.app"
     sleep 10
-    #cd ..
     
     wine_pid=$( ps -A |grep "preinstall.bat" |grep -v grep |awk '{print $1}' |head -n 1 )
     lsof -p $wine_pid +r 1 &>/dev/null
     
+    selected_cores=$( _helpDefaultRead "SelectedCores" )
+    priority=$( _helpDefaultRead "Priority" )
     width=$( _helpDefaultRead "Width" )
     height=$( _helpDefaultRead "Height" )
     
-    flag="-w -CustomResolution:enabled -r"$width"x"$height"x32"
-    /usr/libexec/PlistBuddy -c "Set Program\ Flags $flag" "$plist"
+    if [[ "$priority" = "1" ]]; then
+        priority="Low"
+    elif [[ "$priority" = "2" ]]; then
+        priority="Normal"
+    else
+        priority="High"
+    fi
     
-    game_exe="/GOG Games/SimCity 4 Deluxe Edition/Apps/SimCity 4.exe"
+    flag="-w -CustomResolution:enabled -r"$width"x"$height"x32 -CPUCount:"$selected_cores" -CPUPriority:"$priority""
+    #/usr/libexec/PlistBuddy -c "Set Program\ Flags $flag" "$plist"
+
+    echo "start \"\" \"C:\\GOG Games\\SimCity 4 Deluxe Edition\\Apps\\SimCity 4.exe\" $flag" > "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
+    
+    cp autosave.exe "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition"
+    
+    game_exe="/GOG Games/SimCity 4 Deluxe Edition/start.bat"
     /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
     
     kill -kill "$setup_pid" && open ../Game\ Config*.app
@@ -121,22 +134,33 @@ function _run_check()
 
 }
 
+function _kill_autosave()
+{
+
+    pkill -f "autosave.exe"
+    
+}
+
 function _kill_wine()
 {
 
     pkill -f "SimCity 4.exe"
+    pkill -f "autosave.exe"
     
 }
 
 function _save_config()
 {
 
+    selected_cores=$( _helpDefaultRead "SelectedCores" )
+    priority=$( _helpDefaultRead "Priority" )
     custom=$( _helpDefaultRead "Custom" )
     width=$( _helpDefaultRead "Width" )
     height=$( _helpDefaultRead "Height" )
     fullscreen=$( _helpDefaultRead "Fullscreen" )
     intro=$( _helpDefaultRead "Intro" )
     retina=$( _helpDefaultRead "Retina" )
+    autosave=$( _helpDefaultRead "Autosave" )
     
     if [[ "$custom" = "1" ]]; then
         width="$width" height="$height"
@@ -200,11 +224,29 @@ function _save_config()
         cmd2="-intro:off"
     fi
     
-    flag="$cmd1 -CustomResolution:enabled -r"$width"x"$height"x32 $cmd2"
-    /usr/libexec/PlistBuddy -c "Set Program\ Flags $flag" "$plist"
+    if [[ "$priority" = "1" ]]; then
+        priority="Low"
+    elif [[ "$priority" = "2" ]]; then
+        priority="Normal"
+    else
+        priority="High"
+    fi
     
-    game_exe="/GOG Games/SimCity 4 Deluxe Edition/Apps/SimCity 4.exe"
-    /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
+    flag="$cmd1 -CustomResolution:enabled -r"$width"x"$height"x32 $cmd2 -CPUCount:"$selected_cores" -CPUPriority:"$priority""
+    #/usr/libexec/PlistBuddy -c "Set Program\ Flags $flag" "$plist"
+    
+    #game_exe="/GOG Games/SimCity 4 Deluxe Edition/Apps/SimCity 4.exe"
+    
+    if [[ "$autosave" = "0" ]]; then
+        echo "start \"\" \"C:\\GOG Games\\SimCity 4 Deluxe Edition\\Apps\\SimCity 4.exe\" $flag" > "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
+    else
+        echo "start \"\" \"C:\\GOG Games\\SimCity 4 Deluxe Edition\\Apps\\SimCity 4.exe\" $flag" > "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
+        echo "start \"\" \"C:\\GOG Games\\SimCity 4 Deluxe Edition\\autosave.exe\"" >> "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
+    fi
+    
+    
+    
+    #/usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
     
     if [[ "$retina" = "1" ]]; then
         sed -ib 's/.*RetinaMode.*/"RetinaMode"="Y"/g' "Contents/Resources/user.reg"
