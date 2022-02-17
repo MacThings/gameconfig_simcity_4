@@ -33,6 +33,11 @@ class ViewController: NSViewController {
 
     @IBOutlet weak var change_language: NSButton!
     @IBOutlet weak var disabler: NSTextField!
+    
+    @IBOutlet weak var autosave_checkbox: NSButton!
+    @IBOutlet weak var autosave_field: NSTextField!
+    @IBOutlet weak var autosave_stepper: NSStepper!
+    
    
     
     let scriptPath = Bundle.main.path(forResource: "/script/script", ofType: "command")!
@@ -59,6 +64,9 @@ class ViewController: NSViewController {
             self.load_exe.isEnabled = false
             self.save_bt.isEnabled = false
             self.play_bt.isEnabled = false
+            self.autosave_checkbox.isEnabled = false
+            self.autosave_field.isEnabled = false
+            self.autosave_stepper.isEnabled = false
         } else {
             self.res_selector.isEnabled = true
             self.install_bt.isHidden = true
@@ -74,6 +82,9 @@ class ViewController: NSViewController {
             self.save_bt.isHidden = false
             self.play_bt.isEnabled = true
             self.play_bt.isHidden = false
+            self.autosave_checkbox.isEnabled = true
+            self.autosave_field.isEnabled = true
+            self.autosave_stepper.isEnabled = true
             let check_custom = UserDefaults.standard.bool(forKey: "Custom")
             if check_custom == true{
                 self.res_selector.isEnabled = false
@@ -126,6 +137,11 @@ class ViewController: NSViewController {
         let autosave = UserDefaults.standard.string(forKey: "Autosave")
         if autosave == nil{
             UserDefaults.standard.set(false, forKey: "Autosave")
+        }
+        
+        let save_interval = UserDefaults.standard.string(forKey: "SaveInterval")
+        if save_interval == nil{
+            UserDefaults.standard.set("10", forKey: "SaveInterval")
         }
         
     }
@@ -224,6 +240,21 @@ class ViewController: NSViewController {
     }
     
     @IBAction func height_activity(_ sender: Any) {
+        self.play_bt.isEnabled = false
+        self.save_bt.bezelColor = NSColor.red
+    }
+    
+    @IBAction func autosave_checkbox_activity(_ sender: Any) {
+        self.play_bt.isEnabled = false
+        self.save_bt.bezelColor = NSColor.red
+    }
+    
+    @IBAction func autosave_fieldactivity(_ sender: Any) {
+        self.play_bt.isEnabled = false
+        self.save_bt.bezelColor = NSColor.red
+    }
+    
+    @IBAction func autosave_stepper_activity(_ sender: Any) {
         self.play_bt.isEnabled = false
         self.save_bt.bezelColor = NSColor.red
     }
