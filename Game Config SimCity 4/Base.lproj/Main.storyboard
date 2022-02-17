@@ -159,9 +159,9 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zQS-bd-grQ">
-                                <rect key="frame" x="275" y="185" width="77" height="18"/>
+                                <rect key="frame" x="275" y="185" width="73" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Custom:" bezelStyle="regularSquare" imagePosition="left" inset="2" id="cpy-B6-fbA">
+                                <buttonCell key="cell" type="check" title="Custom" bezelStyle="regularSquare" imagePosition="left" inset="2" id="cpy-B6-fbA">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>

@@ -37,8 +37,8 @@
 /* Class = "NSButtonCell"; title = "Load .exe"; ObjectID = "CMy-Gu-jFC"; */
 "CMy-Gu-jFC.title" = "Lade .exe";
 
-/* Class = "NSButtonCell"; title = "Custom:"; ObjectID = "cpy-B6-fbA"; */
-"cpy-B6-fbA.title" = "Eigene:";
+/* Class = "NSButtonCell"; title = "Custom"; ObjectID = "cpy-B6-fbA"; */
+"cpy-B6-fbA.title" = "Eigene";
 
 /* Class = "NSTextFieldCell"; title = "Complete Collection"; ObjectID = "d3b-24-AoI"; */
 "d3b-24-AoI.title" = "Deluxe Edition";
