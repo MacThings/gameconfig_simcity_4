@@ -10,6 +10,7 @@ import AVFoundation
 
 class ViewController: NSViewController {
 
+    var timer = Timer()
   
     @IBOutlet weak var cpu_cores: NSPopUpButton!
     @IBOutlet weak var priority: NSPopUpButton!
@@ -199,7 +200,7 @@ class ViewController: NSViewController {
         UserDefaults.standard.set(height.stringValue, forKey: "Height")
         syncShellExec(path: scriptPath, args: ["_save_config"])
         
-        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.run_check), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.run_check), userInfo: nil, repeats: true)
         
         DispatchQueue.global(qos: .background).async {
             self.syncShellExec(path: self.scriptPath, args: ["_play"])
@@ -278,6 +279,8 @@ class ViewController: NSViewController {
             play_bt.isEnabled = false
             disabler.isHidden = false
         } else {
+            timer.invalidate()
+            timer = Timer()
             syncShellExec(path: scriptPath, args: ["_kill_autosave"])
             play_bt.isEnabled = true
             disabler.isHidden = true
