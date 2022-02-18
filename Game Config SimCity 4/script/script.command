@@ -146,7 +146,7 @@ function _run_check()
     
     if [[ "$task" = "" ]] && [[ "$task2" = "" ]]; then
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool FALSE
-        pkill -9 -f wine
+        #pkill -9 -f wine
     fi
     
     if [[ "$task3" = "" ]]; then
@@ -159,12 +159,13 @@ function _run_check()
 
 function _load_exe()
 {
+    
+    #defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool TRUE
+    
     load_exe=$( _helpDefaultRead "LoadExe" )
     echo "\"Z:$load_exe\"" > "Contents/Resources/drive_c/loadexe.bat"
         
     /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path loadexe.bat" "$plist"
-    
-    sleep 2
     
     open "../SimCity 4.app"
 
