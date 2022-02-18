@@ -13,6 +13,8 @@
 		2A5A7D8527ADA4C60095A34E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A5A7D8327ADA4C60095A34E /* Main.storyboard */; };
 		2A68C7C027AE9C7200872543 /* script in Resources */ = {isa = PBXBuildFile; fileRef = 2A68C7BF27AE9C7200872543 /* script */; };
 		2A9DE54927B3D5DA000D9B73 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A9DE54727B3D5DA000D9B73 /* Localizable.strings */; };
+		2AFE49F727BFE82B0077D54A /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 2AFE49F627BFE82B0077D54A /* Sparkle */; };
+		2AFE49FA27BFE9900077D54A /* simcity_4.html in Resources */ = {isa = PBXBuildFile; fileRef = 2AFE49F927BFE9900077D54A /* simcity_4.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2A68C7BF27AE9C7200872543 /* script */ = {isa = PBXFileReference; lastKnownFileType = folder; path = script; sourceTree = "<group>"; };
 		2A9DE54627B3D14E000D9B73 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		2A9DE54827B3D5DA000D9B73 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2AFE49F827BFE8D70077D54A /* Game-Config-SimCity-4-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Game-Config-SimCity-4-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2AFE49F927BFE9900077D54A /* simcity_4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = simcity_4.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AFE49F727BFE82B0077D54A /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,10 +62,12 @@
 		2A5A7D7C27ADA4C50095A34E /* Game Config SimCity 4 */ = {
 			isa = PBXGroup;
 			children = (
+				2AFE49F827BFE8D70077D54A /* Game-Config-SimCity-4-Info.plist */,
 				2A68C7BF27AE9C7200872543 /* script */,
 				2A5A7D7D27ADA4C50095A34E /* AppDelegate.swift */,
 				2A5A7D7F27ADA4C50095A34E /* ViewController.swift */,
 				2A5A7D8127ADA4C60095A34E /* Assets.xcassets */,
+				2AFE49F927BFE9900077D54A /* simcity_4.html */,
 				2A5A7D8327ADA4C60095A34E /* Main.storyboard */,
 			);
 			path = "Game Config SimCity 4";
@@ -76,12 +83,16 @@
 				2A5A7D7627ADA4C50095A34E /* Sources */,
 				2A5A7D7727ADA4C50095A34E /* Frameworks */,
 				2A5A7D7827ADA4C50095A34E /* Resources */,
+				2AFE49FB27BFEA9A0077D54A /* To Homeshare */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Game Config SimCity 4";
+			packageProductDependencies = (
+				2AFE49F627BFE82B0077D54A /* Sparkle */,
+			);
 			productName = "Spiel Einstellungen";
 			productReference = 2A5A7D7A27ADA4C50095A34E /* Game Config SimCity 4.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +123,9 @@
 				de,
 			);
 			mainGroup = 2A5A7D7127ADA4C50095A34E;
+			packageReferences = (
+				2AFE49F527BFE82B0077D54A /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			productRefGroup = 2A5A7D7B27ADA4C50095A34E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,11 +143,33 @@
 				2A68C7C027AE9C7200872543 /* script in Resources */,
 				2A9DE54927B3D5DA000D9B73 /* Localizable.strings in Resources */,
 				2A5A7D8227ADA4C60095A34E /* Assets.xcassets in Resources */,
+				2AFE49FA27BFE9900077D54A /* simcity_4.html in Resources */,
 				2A5A7D8527ADA4C60095A34E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2AFE49FB27BFEA9A0077D54A /* To Homeshare */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "To Homeshare";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nfind \"${TARGET_BUILD_DIR}\"/\"${PRODUCT_NAME}.app\"/Contents/Resources -type d -name \"Sparkle.framework\" -exec rm -r \"{}\" \\;\n\nif [ -d /Volumes/Homeshare/Xcode/simcity4 ]; then\ncp \"/Users/luigi/Documents/Xcode/gameconfig_simcity_4/Game Config SimCity 4/simcity_4.html\" \"/Volumes/Homeshare/Xcode/simcity4/upload/simcity4.html\"\nrm /Volumes/Homeshare/Xcode/simcity4/upload/*.zip 2> /dev/null\nditto -c -k --sequesterRsrc --keepParent \"${TARGET_BUILD_DIR}\"/\"${PRODUCT_NAME}.app\" /Volumes/Homeshare/Xcode/simcity4/upload/simcity4.zip\nfi\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2A5A7D7627ADA4C50095A34E /* Sources */ = {
@@ -293,9 +329,10 @@
 				CODE_SIGN_ENTITLEMENTS = "Spiel Einstellungen/Spiel_Einstellungen.entitlements";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 102;
+				CURRENT_PROJECT_VERSION = 101;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Game-Config-SimCity-4-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Sascha Lamprecht";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -305,7 +342,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "gameconfig-simcity4.slsoft.de";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -322,9 +359,10 @@
 				CODE_SIGN_ENTITLEMENTS = "Spiel Einstellungen/Spiel_Einstellungen.entitlements";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 102;
+				CURRENT_PROJECT_VERSION = 101;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Game-Config-SimCity-4-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Sascha Lamprecht";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -334,7 +372,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "gameconfig-simcity4.slsoft.de";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -365,6 +403,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2AFE49F527BFE82B0077D54A /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2AFE49F627BFE82B0077D54A /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AFE49F527BFE82B0077D54A /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2A5A7D7227ADA4C50095A34E /* Project object */;
 }
