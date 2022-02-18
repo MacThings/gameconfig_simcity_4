@@ -118,6 +118,8 @@ function _language()
 function _play()
 {
 
+    game_exe="/GOG Games/SimCity 4 Deluxe Edition/start.bat"
+    /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
     open "../SimCity 4.app"
     
 }
@@ -125,9 +127,12 @@ function _play()
 function _run_check()
 {
 
+    get_tasks=$( ps ax )
     
-    task=$( ps ax |grep -E -e "SimCity 4.exe" | grep -E -e "wine" |grep -v grep )
-    task2=$( ps ax |grep -E -e "autosave.EXE" |grep -v grep )
+    task=$( echo "$get_tasks" |grep "SimCity 4.exe" |grep -v grep )
+    task2=$( echo "$get_tasks" |grep "Z:/" |grep -v grep )
+    task3=$( echo "$get_tasks" |grep "wine" |grep -v grep )
+    
     if [[ "$task" != "" ]]; then
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool TRUE
     else
@@ -136,24 +141,32 @@ function _run_check()
     fi
 
     if [[ "$task" = "" ]] && [[ "$task2" != "" ]]; then
-        pkill -9 -f "autosave.EXE"
+        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool TRUE
     fi
     
+    if [[ "$task" = "" ]] && [[ "$task2" = "" ]]; then
+        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool FALSE
+        pkill -9 -f wine
+    fi
+    
+    if [[ "$task3" = "" ]]; then
+        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool FALSE
+    else
+        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool TRUE
+    fi
+
 }
 
 function _load_exe()
 {
-
-    
-
     load_exe=$( _helpDefaultRead "LoadExe" )
     echo "\"Z:$load_exe\"" > "Contents/Resources/drive_c/loadexe.bat"
         
     /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path loadexe.bat" "$plist"
     
     open "../SimCity 4.app"
-    
-    sleep 2
+
+    sleep 5
     game_exe="/GOG Games/SimCity 4 Deluxe Edition/start.bat"
     /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
     rm "Contents/Resources/drive_c/loadexe.bat"
