@@ -167,7 +167,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nfind \"${TARGET_BUILD_DIR}\"/\"${PRODUCT_NAME}.app\"/Contents/Resources -type d -name \"Sparkle.framework\" -exec rm -r \"{}\" \\;\n\nif [ -d /Volumes/Homeshare/Xcode/simcity4 ]; then\n    cp \"/Users/luigi/Documents/Xcode/gameconfig_simcity_4/Game Config SimCity 4/simcity_4.html\" \"/Volumes/Homeshare/Xcode/simcity4/upload/simcity4.html\"\n    rm /Volumes/Homeshare/Xcode/simcity4/upload/*.zip 2> /dev/null\n    rm -r \"/Users/luigi/Desktop/Game Config.app\" 2> /dev/null\n    cp -r \"${TARGET_BUILD_DIR}\"/\"${PRODUCT_NAME}.app\" \"/Users/luigi/Desktop/Game Config.app\"\n    #ditto -c -k --sequesterRsrc --keepParent \"/Users/luigi/Desktop/Game Config.app\" /Volumes/Homeshare/Xcode/simcity4/upload/simcity4.zip\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nfind \"${TARGET_BUILD_DIR}\"/\"${PRODUCT_NAME}.app\"/Contents/Resources -type d -name \"Sparkle.framework\" -exec rm -r \"{}\" \\;\n\nif [ -d /Volumes/Homeshare/Xcode/simcity4 ]; then\n    cp \"/Users/luigi/Documents/Xcode/gameconfig_simcity_4/Game Config SimCity 4/simcity_4.html\" \"/Volumes/Homeshare/Xcode/simcity4/upload/simcity4.html\"\n    rm /Volumes/Homeshare/Xcode/simcity4/upload/*.zip 2> /dev/null\n    #rm -r \"/Users/luigi/Desktop/Game Config.app\" 2> /dev/null\n    #cp -r \"${TARGET_BUILD_DIR}\"/\"${PRODUCT_NAME}.app\" \"/Users/luigi/Desktop/Game Config.app\"\n    #ditto -c -k --sequesterRsrc --keepParent \"/Users/luigi/Desktop/Game Config.app\" /Volumes/Homeshare/Xcode/simcity4/upload/simcity4.zip\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
