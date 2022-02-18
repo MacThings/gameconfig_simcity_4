@@ -86,7 +86,7 @@ function _setup_exe()
         priority="High"
     fi
     
-    flag="-w -CustomResolution:enabled -r"$width"x"$height"x32 -CPUCount:"$selected_cores" -CPUPriority:"$priority""
+    flag="-w -CustomResolution:enabled -r"$width"x"$height"x32 -CPUCount:"$selected_cores" -CPUPriority:"$priority" -l:english"
     #/usr/libexec/PlistBuddy -c "Set Program\ Flags $flag" "$plist"
 
     echo "start \"\" \"C:\\GOG Games\\SimCity 4 Deluxe Edition\\Apps\\SimCity 4.exe\" $flag" > "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
@@ -155,6 +155,7 @@ function _save_config()
 
     selected_cores=$( _helpDefaultRead "SelectedCores" )
     priority=$( _helpDefaultRead "Priority" )
+    language=$( _helpDefaultRead "Language" )
     custom=$( _helpDefaultRead "Custom" )
     width=$( _helpDefaultRead "Width" )
     height=$( _helpDefaultRead "Height" )
@@ -218,6 +219,37 @@ function _save_config()
         #####################################
     fi
     
+    
+    ######### Language Table #########
+    if [[ "$language" = "1" ]]; then
+        language="danish"
+    elif [[ "$language" = "2" ]]; then
+        language="dutch"
+    elif [[ "$language" = "3" ]]; then
+        language="english"
+    elif [[ "$language" = "4" ]]; then
+        language="finnish"
+    elif [[ "$language" = "5" ]]; then
+        language="french"
+    elif [[ "$language" = "6" ]]; then
+        language="german"
+    elif [[ "$language" = "7" ]]; then
+        language="italian"
+    elif [[ "$language" = "8" ]]; then
+        language="norwegian"
+    elif [[ "$language" = "9" ]]; then
+        language="polish"
+    elif [[ "$language" = "10" ]]; then
+        language="portuguese"
+    elif [[ "$language" = "11" ]]; then
+        language="spanish"
+    elif [[ "$language" = "12" ]]; then
+        language="swedish"
+    fi
+    #####################################
+    
+    
+    
     if [[ "$fullscreen" = "1" ]]; then
         cmd1="-f"
     else
@@ -236,7 +268,7 @@ function _save_config()
         priority="High"
     fi
     
-    flag="$cmd1 -CustomResolution:enabled -r"$width"x"$height"x32 $cmd2 -CPUCount:"$selected_cores" -CPUPriority:"$priority""
+    flag="$cmd1 -CustomResolution:enabled -r"$width"x"$height"x32 $cmd2 -CPUCount:"$selected_cores" -CPUPriority:"$priority" -l:$language"
     #/usr/libexec/PlistBuddy -c "Set Program\ Flags $flag" "$plist"
     
     #game_exe="/GOG Games/SimCity 4 Deluxe Edition/Apps/SimCity 4.exe"

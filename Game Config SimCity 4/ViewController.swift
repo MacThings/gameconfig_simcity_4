@@ -14,6 +14,7 @@ class ViewController: NSViewController {
   
     @IBOutlet weak var cpu_cores: NSPopUpButton!
     @IBOutlet weak var priority: NSPopUpButton!
+    @IBOutlet weak var change_language: NSPopUpButton!
     
     @IBOutlet weak var res_selector: NSPopUpButton!
     @IBOutlet weak var width: NSTextField!
@@ -32,14 +33,11 @@ class ViewController: NSViewController {
     @IBOutlet weak var save_bt: NSButton!
     @IBOutlet weak var play_bt: NSButton!
 
-    @IBOutlet weak var change_language: NSButton!
     @IBOutlet weak var disabler: NSTextField!
     
     @IBOutlet weak var autosave_checkbox: NSButton!
     @IBOutlet weak var autosave_field: NSTextField!
     @IBOutlet weak var autosave_stepper: NSStepper!
-    
-   
     
     let scriptPath = Bundle.main.path(forResource: "/script/script", ofType: "command")!
     
@@ -135,6 +133,11 @@ class ViewController: NSViewController {
             UserDefaults.standard.set("3", forKey: "Priority")
         }
         
+        let language = UserDefaults.standard.string(forKey: "Language")
+        if language == nil{
+            UserDefaults.standard.set("3", forKey: "Language")
+        }
+        
         let autosave = UserDefaults.standard.string(forKey: "Autosave")
         if autosave == nil{
             UserDefaults.standard.set(false, forKey: "Autosave")
@@ -171,10 +174,6 @@ class ViewController: NSViewController {
         didSet {
         // Update the view, if already loaded.
         }
-    }
-    
-    @IBAction func language(_ sender: Any) {
-        syncShellExec(path: scriptPath, args: ["_language"])
     }
     
     @IBAction func open_c(_ sender: Any) {
@@ -226,6 +225,11 @@ class ViewController: NSViewController {
     }
     
     @IBAction func priority_activity(_ sender: Any) {
+        self.play_bt.isEnabled = false
+        self.save_bt.bezelColor = NSColor.red
+    }
+    
+    @IBAction func language_activity(_ sender: Any) {
         self.play_bt.isEnabled = false
         self.save_bt.bezelColor = NSColor.red
     }

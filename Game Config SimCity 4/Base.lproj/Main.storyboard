@@ -269,17 +269,6 @@
                                     <binding destination="uZ2-S1-ZsI" name="value" keyPath="values.Retina" id="r9P-F0-L9U"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6kw-Kk-Ah0">
-                                <rect key="frame" x="13" y="85" width="230" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Change Language" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Fr-1p-HM6">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="language:" target="XfG-lQ-9wD" id="DCD-si-Vmk"/>
-                                </connections>
-                            </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOc-36-gzy">
                                 <rect key="frame" x="275" y="123" width="133" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -432,7 +421,7 @@
                                 </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XPu-3o-gye">
-                                <rect key="frame" x="20" y="124" width="72" height="16"/>
+                                <rect key="frame" x="20" y="125" width="72" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Resolution" id="lbL-bH-tbW">
                                     <font key="font" metaFont="system"/>
@@ -440,8 +429,45 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rDf-bF-mw1">
+                                <rect key="frame" x="107" y="88" width="133" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="Danish" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="JVn-cM-4vz" id="5Qw-8g-OUA">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="gKE-me-ifC">
+                                        <items>
+                                            <menuItem title="Danish" tag="1" id="JVn-cM-4vz"/>
+                                            <menuItem title="Dutch" tag="2" id="bVX-I0-U0x"/>
+                                            <menuItem title="English" tag="3" id="691-1r-Nem"/>
+                                            <menuItem title="Finnish" tag="4" id="Pud-nl-NIq"/>
+                                            <menuItem title="French" tag="5" id="ikc-P4-1Wu"/>
+                                            <menuItem title="German" tag="6" id="zQ4-uR-ECb"/>
+                                            <menuItem title="Italian" tag="7" id="i3X-yg-hLY"/>
+                                            <menuItem title="Norwegian" tag="8" id="I5o-eg-ZJW"/>
+                                            <menuItem title="Polish" tag="9" id="jsd-kF-xFF"/>
+                                            <menuItem title="Portuguese" tag="10" id="rCX-c0-0v3"/>
+                                            <menuItem title="Spanish" tag="11" id="FGg-qJ-L7F"/>
+                                            <menuItem title="Swedish" tag="12" id="TU9-Pb-JHU"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="language_activity:" target="XfG-lQ-9wD" id="o0J-lb-bby"/>
+                                    <binding destination="uZ2-S1-ZsI" name="selectedTag" keyPath="values.Language" id="5J4-9p-p5D"/>
+                                </connections>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MRy-CS-gSx">
+                                <rect key="frame" x="20" y="95" width="72" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Language" id="QHM-1p-Xjc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-nA-ghC">
-                                <rect key="frame" x="0.0" y="3" width="528" height="212"/>
+                                <rect key="frame" x="468" y="-64" width="528" height="212"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" selectable="YES" alignment="left" drawsBackground="YES" id="bOc-iy-IaJ">
                                     <font key="font" metaFont="system" size="40"/>
@@ -459,7 +485,7 @@ AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
                         <outlet property="autosave_checkbox" destination="TQV-Wc-Afp" id="qIS-kO-KX1"/>
                         <outlet property="autosave_field" destination="JfJ-Aq-ega" id="de4-7r-Luf"/>
                         <outlet property="autosave_stepper" destination="XQ5-na-Enk" id="HPb-cU-Ez9"/>
-                        <outlet property="change_language" destination="6kw-Kk-Ah0" id="EeV-va-blE"/>
+                        <outlet property="change_language" destination="rDf-bF-mw1" id="SaV-1Q-tmT"/>
                         <outlet property="cpu_cores" destination="PIv-R3-a1Y" id="yrE-Jb-EKL"/>
                         <outlet property="custom" destination="zQS-bd-grQ" id="Shj-3x-pNM"/>
                         <outlet property="disabler" destination="O6r-nA-ghC" id="KQz-wb-ZaY"/>
