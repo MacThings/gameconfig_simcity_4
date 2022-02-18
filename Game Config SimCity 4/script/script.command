@@ -164,12 +164,10 @@ function _load_exe()
         
     /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path loadexe.bat" "$plist"
     
+    sleep 2
+    
     open "../SimCity 4.app"
 
-    sleep 5
-    game_exe="/GOG Games/SimCity 4 Deluxe Edition/start.bat"
-    /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
-    rm "Contents/Resources/drive_c/loadexe.bat"
 }
 
 function _kill_autosave()
@@ -318,7 +316,8 @@ function _save_config()
         echo "start \"\" autosave $saveinterval" >> "Contents/Resources/drive_c/GOG Games/SimCity 4 Deluxe Edition/start.bat"
     fi
     
-    
+    game_exe="/GOG Games/SimCity 4 Deluxe Edition/start.bat"
+    /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
     
     #/usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
     
