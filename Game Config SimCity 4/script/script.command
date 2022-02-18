@@ -125,7 +125,9 @@ function _play()
 function _run_check()
 {
 
-    task=$( ps ax |grep "SimCity 4.exe" |grep -v grep )
+    
+    task=$( ps ax |grep -E -e "SimCity 4.exe" | grep -E -e "wine" |grep -v grep )
+    task2=$( ps ax |grep -E -e "autosave.EXE" |grep -v grep )
     if [[ "$task" != "" ]]; then
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool TRUE
     else
@@ -133,6 +135,28 @@ function _run_check()
         pkill -9 -f "autosave.EXE"
     fi
 
+    if [[ "$task" = "" ]] && [[ "$task2" != "" ]]; then
+        pkill -9 -f "autosave.EXE"
+    fi
+    
+}
+
+function _load_exe()
+{
+
+    
+
+    load_exe=$( _helpDefaultRead "LoadExe" )
+    echo "\"Z:$load_exe\"" > "Contents/Resources/drive_c/loadexe.bat"
+        
+    /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path loadexe.bat" "$plist"
+    
+    open "../SimCity 4.app"
+    
+    sleep 2
+    game_exe="/GOG Games/SimCity 4 Deluxe Edition/start.bat"
+    /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path $game_exe" "$plist"
+    rm "Contents/Resources/drive_c/loadexe.bat"
 }
 
 function _kill_autosave()

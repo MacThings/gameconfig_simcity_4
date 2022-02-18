@@ -249,7 +249,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="load_exe:" target="XfG-lQ-9wD" id="JDc-Ya-rgs"/>
+                                    <action selector="browseFile_general_exeWithSender:" target="XfG-lQ-9wD" id="ZMf-Pt-keO"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QKO-lo-nnc">
@@ -474,7 +474,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-nA-ghC">
-                                <rect key="frame" x="0.0" y="3" width="528" height="212"/>
+                                <rect key="frame" x="404" y="-41" width="528" height="212"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" selectable="YES" alignment="left" drawsBackground="YES" id="bOc-iy-IaJ">
                                     <font key="font" metaFont="system" size="40"/>

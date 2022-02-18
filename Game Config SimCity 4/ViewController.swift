@@ -182,8 +182,9 @@ class ViewController: NSViewController {
     }
     
     @IBAction func load_exe(_ sender: Any) {
-        let exe = UserDefaults.standard.string(forKey: "WrapperPath")!
-        NSWorkspace.shared.launchApplication(exe + "/Wineskin.app")
+        syncShellExec(path: scriptPath, args: ["_load_exe"])
+        //let exe = UserDefaults.standard.string(forKey: "WrapperPath")!
+        //NSWorkspace.shared.launchApplication(exe + "/Wineskin.app")
     }
     
     @IBAction func save_config(_ sender: Any) {
@@ -326,6 +327,39 @@ class ViewController: NSViewController {
                 
                 DispatchQueue.global(qos: .background).async {
                     self.syncShellExec(path: self.scriptPath, args: ["_setup_exe"])
+                        DispatchQueue.main.async {
+                    }
+                }
+            }
+        } else {
+            // User clicked on "Cancel"
+            return
+        }
+    }
+    
+    @IBAction func browseFile_general_exe(sender: AnyObject) {
+        
+        let dialog = NSOpenPanel();
+        
+        dialog.title                   = "Choose a Folder";
+        dialog.showsResizeIndicator    = true;
+        dialog.showsHiddenFiles        = false;
+        dialog.canChooseDirectories    = true;
+        dialog.canCreateDirectories    = false;
+        dialog.allowsMultipleSelection = false;
+        dialog.allowedFileTypes        = ["exe"];
+        
+        if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+            let result = dialog.url // Pathname of the file
+            
+            if (result != nil) {
+                let path = result!.path
+                let exepath = (path as String)
+                UserDefaults.standard.set(exepath, forKey: "LoadExe")
+                timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.run_check), userInfo: nil, repeats: true)
+                
+                DispatchQueue.global(qos: .background).async {
+                    self.syncShellExec(path: self.scriptPath, args: ["_load_exe"])
                         DispatchQueue.main.async {
                     }
                 }
