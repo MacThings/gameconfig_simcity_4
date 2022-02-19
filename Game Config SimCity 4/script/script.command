@@ -100,21 +100,6 @@ function _setup_exe()
 
 }
 
-function _open_wineskin()
-{
-
-    open Wineskin.app
-
-}
-
-function _language()
-{
-    
-    open "ChangeLanguage.app"
-    
-    
-}
-
 function _play()
 {
 
