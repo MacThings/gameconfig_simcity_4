@@ -145,16 +145,23 @@ function _run_check()
 function _load_exe()
 {
     
-    #defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "GameRunning" -bool TRUE
-    
     load_exe=$( _helpDefaultRead "LoadExe" )
-    echo "\"Z:$load_exe\"" > "Contents/Resources/drive_c/loadexe.bat"
-        
-    /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path loadexe.bat" "$plist"
+    load_exe_name=$( echo "$load_exe" |sed 's/.*\///g' )
+    load_exe_path=$( echo "$load_exe" |sed "s/\/$load_exe_name//g" )
     
+    if [[ "$load_exe" = *"NetworkAddonMod_Setup"* ]]; then
+        echo "Z:" > "Contents/Resources/drive_c/loadexe.bat"
+        echo "cd \"$load_exe_path\"" >> "Contents/Resources/drive_c/loadexe.bat"
+        echo "\"$load_exe_name\"" >> "Contents/Resources/drive_c/loadexe.bat"
+    else
+        echo "\"Z:$load_exe\"" > "Contents/Resources/drive_c/loadexe.bat"
+    fi
+    
+    /usr/libexec/PlistBuddy -c "Set Program\ Name\ and\ Path loadexe.bat" "$plist"
     open "../SimCity 4.app"
-
 }
+
+
 
 function _kill_autosave()
 {
@@ -268,9 +275,7 @@ function _save_config()
         language="swedish"
     fi
     #####################################
-    
-    
-    
+ 
     if [[ "$fullscreen" = "1" ]]; then
         cmd1="-f"
     else

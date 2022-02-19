@@ -34,8 +34,8 @@
 /* Class = "NSButtonCell"; title = "Retina Mode"; ObjectID = "b9H-eB-Y5L"; */
 "b9H-eB-Y5L.title" = "Retina Modus";
 
-/* Class = "NSButtonCell"; title = "Load .exe"; ObjectID = "CMy-Gu-jFC"; */
-"CMy-Gu-jFC.title" = "Lade .exe";
+/* Class = "NSButtonCell"; title = "Install Mod"; ObjectID = "CMy-Gu-jFC"; */
+"CMy-Gu-jFC.title" = "Mod install.";
 
 /* Class = "NSButtonCell"; title = "Custom"; ObjectID = "cpy-B6-fbA"; */
 "cpy-B6-fbA.title" = "Eigene";
@@ -180,4 +180,4 @@
 
 "wbd-4E-gNW.title" = "Auf Updates prüfen ...";
 
-
+"7PL-ce-ohY.title" = "Öffne Plugins";

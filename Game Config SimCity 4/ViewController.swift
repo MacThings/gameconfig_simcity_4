@@ -27,6 +27,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var autosave: NSButton!
     
     @IBOutlet weak var open_c: NSButton!
+    @IBOutlet weak var open_plugins: NSButton!
     @IBOutlet weak var load_exe: NSButton!
     
     @IBOutlet weak var install_bt: NSButton!
@@ -45,6 +46,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         UserDefaults.standard.removeObject(forKey: "GameRunning")
+        let userDesktopDirectory:String = NSHomeDirectory()
         
         syncShellExec(path: scriptPath, args: ["_check_for_game"])
         
@@ -60,6 +62,7 @@ class ViewController: NSViewController {
             self.autosave.isEnabled = false
             self.change_language.isEnabled = false
             self.open_c.isEnabled = false
+            self.open_plugins.isEnabled = false
             self.load_exe.isEnabled = false
             self.save_bt.isEnabled = false
             self.play_bt.isEnabled = false
@@ -76,6 +79,7 @@ class ViewController: NSViewController {
             self.autosave.isEnabled = true
             self.change_language.isEnabled = true
             self.open_c.isEnabled = true
+            self.open_plugins.isEnabled = true
             self.load_exe.isEnabled = true
             self.save_bt.isEnabled = true
             self.save_bt.isHidden = false
@@ -180,6 +184,11 @@ class ViewController: NSViewController {
         let wrapperpath = UserDefaults.standard.string(forKey: "WrapperPath") ?? ""
         NSWorkspace.shared.openFile(wrapperpath + "/Contents/Resources/drive_c")
     }
+    
+    @IBAction func open_plugins(_ sender: Any) {
+        NSWorkspace.shared.openFile(NSHomeDirectory() + "/Documents/SimCity 4/Plugins")
+    }
+    
     
     @IBAction func load_exe(_ sender: Any) {
         syncShellExec(path: scriptPath, args: ["_load_exe"])
@@ -347,7 +356,7 @@ class ViewController: NSViewController {
         dialog.canChooseDirectories    = true;
         dialog.canCreateDirectories    = false;
         dialog.allowsMultipleSelection = false;
-        dialog.allowedFileTypes        = ["exe"];
+        dialog.allowedFileTypes        = ["exe","bat"];
         
         if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             let result = dialog.url // Pathname of the file
@@ -355,6 +364,18 @@ class ViewController: NSViewController {
             if (result != nil) {
                 let path = result!.path
                 let exepath = (path as String)
+                
+                if exepath.contains(".bat"), exepath.contains("NetworkAddonMod") {
+                    let alert = NSAlert()
+                    alert.messageText = NSLocalizedString("Attention!", comment: "")
+                    alert.informativeText = NSLocalizedString("The NAM installer will complain that the 4gb patch could not be executed. Simply confirm this message with Enter. It can be ignored.", comment: "")
+                    alert.alertStyle = .informational
+                    alert.icon = NSImage(named: "NSError")
+                    let Button = NSLocalizedString("Ok", comment: "")
+                    alert.addButton(withTitle: Button)
+                    alert.runModal()
+                }
+                
                 UserDefaults.standard.set(exepath, forKey: "LoadExe")
                 timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.run_check), userInfo: nil, repeats: true)
                 
