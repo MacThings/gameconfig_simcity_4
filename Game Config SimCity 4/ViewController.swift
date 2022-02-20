@@ -40,13 +40,33 @@ class ViewController: NSViewController {
     @IBOutlet weak var autosave_field: NSTextField!
     @IBOutlet weak var autosave_stepper: NSStepper!
     
+    @IBOutlet weak var nam_installed_dot: NSImageView!
+    @IBOutlet weak var nam_download_icon: NSButton!
+    @IBOutlet weak var name_configurator: NSButton!
+    
+    
     let scriptPath = Bundle.main.path(forResource: "/script/script", ofType: "command")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         UserDefaults.standard.removeObject(forKey: "GameRunning")
-        let userDesktopDirectory:String = NSHomeDirectory()
+        //let userDesktopDirectory:String = NSHomeDirectory()
+        
+        
+        let nammod_installed = UserDefaults.standard.bool(forKey: "NamModInstalled")
+        if nammod_installed == true{
+            self.nam_installed_dot.image = NSImage(named: "NSStatusAvailable")
+        } else {
+            self.nam_installed_dot.image = NSImage(named: "NSStatusUnavailable")
+        }
+        
+        let namconfig_installed = UserDefaults.standard.bool(forKey: "NamConfigInstalled")
+        if namconfig_installed == true{
+            self.nam_installed_dot.image = NSImage(named: "NSStatusAvailable")
+        } else {
+            self.nam_installed_dot.image = NSImage(named: "NSStatusUnavailable")
+        }
         
         syncShellExec(path: scriptPath, args: ["_check_for_game"])
         
@@ -114,6 +134,9 @@ class ViewController: NSViewController {
         }
         
         syncShellExec(path: scriptPath, args: ["_get_cores"])
+        
+        syncShellExec(path: scriptPath, args: ["_check_nammod"])
+        syncShellExec(path: scriptPath, args: ["_check_namconfig"])
         
         let count_cores = NSString(string:"/private/tmp/cpucores").expandingTildeInPath
         let fileContent = try? NSString(contentsOfFile: count_cores, encoding: String.Encoding.utf8.rawValue)
@@ -299,6 +322,14 @@ class ViewController: NSViewController {
             play_bt.isEnabled = true
             disabler.isHidden = true
         }
+    }
+    
+    @IBAction func download_nammod(_ sender: Any) {
+        NSWorkspace.shared.open(NSURL(string: "https://community.simtropolis.com/files/file/26793-network-addon-mod-nam-cross-platform")! as URL)
+    }
+    
+    @IBAction func download_namconfig(_ sender: Any) {
+        NSWorkspace.shared.open(NSURL(string: "http://www.simcityplaza.de/index.php/tools-und-andere-downloads/modding-tools?start=10")! as URL)
     }
     
     @IBAction func browseFile_setup_exe(sender: AnyObject) {

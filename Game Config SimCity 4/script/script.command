@@ -100,6 +100,30 @@ function _setup_exe()
 
 }
 
+function _check_namconfig()
+{
+
+    if [ -f "Contents/Resources/drive_c/Program Files (x86)/SC4 Utilities/NAMConfig/namconfig.exe" ]; then
+        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "NamConfigInstalled" -bool TRUE
+    else
+        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "NamConfigInstalled" -bool FALSE
+    fi
+
+}
+
+function _check_nammod()
+{
+
+    check_nammod=$( find ~/Documents/SimCity\ 4/Plugins -name "NetworkAddonMod_Props.dat" )
+
+    if [[ "$check_nammod" != "" ]]; then
+        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "NamModInstalled" -bool TRUE
+    else
+        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "NamModInstalled" -bool FALSE
+    fi
+
+}
+
 function _play()
 {
 
