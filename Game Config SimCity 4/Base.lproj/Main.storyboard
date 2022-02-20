@@ -442,7 +442,7 @@ AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
                                 <rect key="frame" x="36" y="57" width="60" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="NAM Mod" id="ndr-2a-i25">
-                                    <font key="font" metaFont="system" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -506,7 +506,7 @@ AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cAI-Pc-zu4">
                                 <rect key="frame" x="106" y="57" width="15" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="RpI-rJ-NSD">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Link" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="RpI-rJ-NSD">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -576,5 +576,6 @@ AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
     </scenes>
     <resources>
         <image name="Keyboard" width="2077" height="764"/>
+        <image name="Link" width="620" height="620"/>
     </resources>
 </document>
