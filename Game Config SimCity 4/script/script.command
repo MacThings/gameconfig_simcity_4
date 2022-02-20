@@ -100,23 +100,14 @@ function _setup_exe()
 
 }
 
-function _check_namconfig()
-{
-
-    if [ -f "Contents/Resources/drive_c/Program Files (x86)/SC4 Utilities/NAMConfig/namconfig.exe" ]; then
-        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "NamConfigInstalled" -bool TRUE
-    else
-        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "NamConfigInstalled" -bool FALSE
-    fi
-
-}
-
 function _check_nammod()
 {
 
-    check_nammod=$( find ~/Documents/SimCity\ 4/Plugins -name "NetworkAddonMod_Props.dat" )
+    check_nammod_1=$( find ~/Documents/SimCity\ 4/Plugins -name "NetworkAddonMod_Props.dat" )
+    check_nammod_2=$( find ~/Documents/SimCity\ 4/Plugins -name "NetworkAddonMod_BaseContent.dat" )
+    check_nammod_3=$( find ~/Documents/SimCity\ 4/Plugins -name "NetworkAddonMod_UI.dat" )
 
-    if [[ "$check_nammod" != "" ]]; then
+    if [[ "$check_nammod_1" != "" ]] && [[ "$check_nammod_2" != "" ]] && [[ "$check_nammod_3" != "" ]]; then
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "NamModInstalled" -bool TRUE
     else
         defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "NamModInstalled" -bool FALSE
@@ -218,7 +209,7 @@ function _save_config()
     
     saveinterval=$( _helpDefaultRead "SaveInterval" )
     saveinterval=$( echo "$saveinterval" | sed -e 's/\..*//g' -e 's/,.*//g' )
-    
+
     if [[ "$custom" = "1" ]]; then
         width="$width" height="$height"
     else

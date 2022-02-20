@@ -41,33 +41,19 @@ class ViewController: NSViewController {
     @IBOutlet weak var autosave_stepper: NSStepper!
     
     @IBOutlet weak var nam_installed_dot: NSImageView!
-    @IBOutlet weak var nam_download_icon: NSButton!
-    @IBOutlet weak var name_configurator: NSButton!
-    
+    @IBOutlet weak var nam_get_it: NSButton!
+    @IBOutlet weak var nam_get_it_arrow: NSTextField!
     
     let scriptPath = Bundle.main.path(forResource: "/script/script", ofType: "command")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.preferredContentSize = NSMakeSize(self.view.frame.size.width, self.view.frame.size.height);
+        
         UserDefaults.standard.removeObject(forKey: "GameRunning")
         //let userDesktopDirectory:String = NSHomeDirectory()
-        
-        
-        let nammod_installed = UserDefaults.standard.bool(forKey: "NamModInstalled")
-        if nammod_installed == true{
-            self.nam_installed_dot.image = NSImage(named: "NSStatusAvailable")
-        } else {
-            self.nam_installed_dot.image = NSImage(named: "NSStatusUnavailable")
-        }
-        
-        let namconfig_installed = UserDefaults.standard.bool(forKey: "NamConfigInstalled")
-        if namconfig_installed == true{
-            self.nam_installed_dot.image = NSImage(named: "NSStatusAvailable")
-        } else {
-            self.nam_installed_dot.image = NSImage(named: "NSStatusUnavailable")
-        }
-        
+
         syncShellExec(path: scriptPath, args: ["_check_for_game"])
         
         let game_installed = UserDefaults.standard.bool(forKey: "GameInstalled")
@@ -106,8 +92,8 @@ class ViewController: NSViewController {
             self.play_bt.isEnabled = true
             self.play_bt.isHidden = false
             self.autosave_checkbox.isEnabled = true
-            self.autosave_field.isEnabled = true
-            self.autosave_stepper.isEnabled = true
+            //self.autosave_field.isEnabled = true
+            //self.autosave_stepper.isEnabled = true
             let check_custom = UserDefaults.standard.bool(forKey: "Custom")
             if check_custom == true{
                 self.res_selector.isEnabled = false
@@ -136,8 +122,16 @@ class ViewController: NSViewController {
         syncShellExec(path: scriptPath, args: ["_get_cores"])
         
         syncShellExec(path: scriptPath, args: ["_check_nammod"])
-        syncShellExec(path: scriptPath, args: ["_check_namconfig"])
         
+        let nammod_installed = UserDefaults.standard.bool(forKey: "NamModInstalled")
+        if nammod_installed == true{
+            self.nam_installed_dot.image = NSImage(named: "NSStatusAvailable")
+        } else {
+            self.nam_installed_dot.image = NSImage(named: "NSStatusUnavailable")
+            self.nam_get_it.isHidden = false
+            self.nam_get_it_arrow.isHidden = false
+        }
+
         let count_cores = NSString(string:"/private/tmp/cpucores").expandingTildeInPath
         let fileContent = try? NSString(contentsOfFile: count_cores, encoding: String.Encoding.utf8.rawValue)
         for (_, cores) in (fileContent?.components(separatedBy: "\n").enumerated())! {
@@ -168,13 +162,22 @@ class ViewController: NSViewController {
         let autosave = UserDefaults.standard.string(forKey: "Autosave")
         if autosave == nil{
             UserDefaults.standard.set(false, forKey: "Autosave")
+            self.autosave_stepper.isEnabled = false
+        }
+
+        let autosave2 = UserDefaults.standard.bool(forKey: "Autosave")
+        if autosave2 == true{
+            self.autosave_field.isEnabled = true
+            self.autosave_stepper.isEnabled = true
+        } else {
+            self.autosave_field.isEnabled = false
+            self.autosave_stepper.isEnabled = false
         }
         
         let save_interval = UserDefaults.standard.string(forKey: "SaveInterval")
         if save_interval == nil{
             UserDefaults.standard.set("10", forKey: "SaveInterval")
         }
-        
     }
 
     override func viewDidAppear() {
@@ -297,11 +300,15 @@ class ViewController: NSViewController {
     @IBAction func autosave_checkbox_activity(_ sender: Any) {
         self.play_bt.isEnabled = false
         self.save_bt.bezelColor = NSColor.red
-    }
-    
-    @IBAction func autosave_fieldactivity(_ sender: Any) {
-        //self.play_bt.isEnabled = false
-        //self.save_bt.bezelColor = NSColor.red
+        let autosave = UserDefaults.standard.bool(forKey: "Autosave")
+        if autosave == true {
+            self.autosave_field.isEnabled = true
+            self.autosave_stepper.isEnabled = true
+        } else {
+            self.autosave_field.isEnabled = false
+            self.autosave_stepper.isEnabled = false
+        }
+        
     }
     
     @IBAction func autosave_stepper_activity(_ sender: Any) {
@@ -325,13 +332,12 @@ class ViewController: NSViewController {
     }
     
     @IBAction func download_nammod(_ sender: Any) {
+        let nammod_installed = UserDefaults.standard.bool(forKey: "NamModInstalled")
+        if nammod_installed == false{
         NSWorkspace.shared.open(NSURL(string: "https://community.simtropolis.com/files/file/26793-network-addon-mod-nam-cross-platform")! as URL)
+        }
     }
-    
-    @IBAction func download_namconfig(_ sender: Any) {
-        NSWorkspace.shared.open(NSURL(string: "http://www.simcityplaza.de/index.php/tools-und-andere-downloads/modding-tools?start=10")! as URL)
-    }
-    
+
     @IBAction func browseFile_setup_exe(sender: AnyObject) {
         
         let dialog = NSOpenPanel();
