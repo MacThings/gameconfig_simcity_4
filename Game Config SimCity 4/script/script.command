@@ -133,7 +133,7 @@ EOD
     leeched_path=$( echo "$HOME/Documents/SimCity 4" )
     cd "$leeched_path"
     
-    check=$( pbpaste |sed -e 's/.*http/http/g' |sed -e '/EITHER/d' -e '/OR/d' |grep -E "http|sc4devotion|simtropolis" |uniq )
+    check=$( pbpaste |sed -e 's/.*http/http/g' |uniq )
 
     if [ ! -f "mods_installed.txt" ]; then
         touch "mods_installed.txt"
