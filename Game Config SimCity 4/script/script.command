@@ -146,9 +146,15 @@ EOD
     while read -r line
     do
 
+    line=$( echo "$line" |grep "http" )
+
     if ! grep -Fxq "$line" mods_installed.txt; then
         echo "$line" >> /private/tmp/sc4_mods_to_install.txt
         echo "$line" >> mods_installed.txt
+        if [[ "$line" = "" ]]; then
+            sed -i '' -e '$ d' /private/tmp/sc4_mods_to_install.txt
+            sed -i '' -e '$ d' mods_installed.txt
+        fi
     fi
 
     done <<< "$check"
