@@ -40,6 +40,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var autosave_field: NSTextField!
     @IBOutlet weak var autosave_stepper: NSStepper!
     
+    @IBOutlet weak var check_mod_dependencies: NSButton!
+    
     @IBOutlet weak var nam_installed_dot: NSImageView!
     @IBOutlet weak var nam_get_it: NSButton!
     @IBOutlet weak var nam_get_it_arrow: NSTextField!
@@ -220,6 +222,23 @@ class ViewController: NSViewController {
         syncShellExec(path: scriptPath, args: ["_load_exe"])
         //let exe = UserDefaults.standard.string(forKey: "WrapperPath")!
         //NSWorkspace.shared.launchApplication(exe + "/Wineskin.app")
+    }
+    
+    
+    @IBAction func check_mod_dependencies(_ sender: Any) {
+        syncShellExec(path: scriptPath, args: ["_check_installed_mods"])
+        let check_mod_dependencies = UserDefaults.standard.string(forKey: "ModsInstalled")
+        if check_mod_dependencies == nil{
+            let alert = NSAlert()
+            alert.messageText = NSLocalizedString("Read before proceed!", comment: "")
+            alert.informativeText = NSLocalizedString("When the installation in Windows has been completed, close the setup program. Don't open the game just yet!\n\nThe Game Config app will restart automatic and than you can press \"Play\"", comment: "")
+            alert.alertStyle = .informational
+            alert.icon = NSImage(named: "NSError")
+            let Button = NSLocalizedString("Ok", comment: "")
+            alert.addButton(withTitle: Button)
+            alert.runModal()
+        }
+        UserDefaults.standard.removeObject(forKey: "GameRunning")
     }
     
     @IBAction func save_config(_ sender: Any) {

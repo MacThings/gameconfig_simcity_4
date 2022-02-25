@@ -146,6 +146,7 @@ function _check_installed_mods()
     if [ -f "/private/tmp/sc4_mods_to_install.txt" ]; then
         echo -e "\n\nYou will see this missing url(s) only one time! Please make sure to download and install these Package(s) really. They will never be shown again!" >> /private/tmp/sc4_mods_to_install.txt
         open -a TextEdit /private/tmp/sc4_mods_to_install.txt
+        defaults write "${ScriptHome}/Library/Preferences/gameconfig-$gamename.slsoft.de" "ModsInstalled" -bool TRUE
     fi
 }
 
