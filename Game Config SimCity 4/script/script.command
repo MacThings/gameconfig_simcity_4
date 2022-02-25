@@ -118,29 +118,35 @@ function _check_nammod()
 function _check_installed_mods()
 {
 
+    leeched_path=$( echo "$HOME/Documents/SimCity 4" )
+    cd "$leeched_path"
+    
     check=$( pbpaste |sed -e 's/.*http/http/g' |sed -e '/EITHER/d' -e '/OR/d' |grep "http" |uniq )
 
-    if [ ! -f leeched ]; then
-        touch leeched
+    if [ ! -f "mods_installed" ]; then
+        touch "mods_installed"
     fi
-
-    echo "#################################################################################################################################################"
-    echo "You will see this missing url(s) only one time! Please make sure to download and install these Package(s) really. They will never be shown again!"
-    echo "#################################################################################################################################################"
-    echo " "
+    
+    if [ -f "/private/tmp/sc4_mods_to_install.txt" ]; then
+        rm "/private/tmp/sc4_mods_to_install.txt"
+    fi
 
     while read -r line
     do
 
-    if ! grep -Fxq "$line" leeched; then
-    echo "$line"
-    echo "$line" >> leeched
+    if ! grep -Fxq "$line" mods_installed; then
+        echo "$line" >> /private/tmp/sc4_mods_to_install.txt
+        echo "$line" >> mods_installed
     fi
 
     done <<< "$check"
 
     echo " "
-
+    
+    if [ -f "/private/tmp/sc4_mods_to_install.txt" ]; then
+        echo -e "\n\nYou will see this missing url(s) only one time! Please make sure to download and install these Package(s) really. They will never be shown again!" >> /private/tmp/sc4_mods_to_install.txt
+        open -a TextEdit /private/tmp/sc4_mods_to_install.txt
+    fi
 }
 
 function _play()
