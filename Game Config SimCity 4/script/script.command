@@ -115,6 +115,34 @@ function _check_nammod()
 
 }
 
+function _check_installed_mods()
+{
+
+    check=$( pbpaste |sed -e 's/.*http/http/g' |sed -e '/EITHER/d' -e '/OR/d' |grep "http" |uniq )
+
+    if [ ! -f leeched ]; then
+        touch leeched
+    fi
+
+    echo "#################################################################################################################################################"
+    echo "You will see this missing url(s) only one time! Please make sure to download and install these Package(s) really. They will never be shown again!"
+    echo "#################################################################################################################################################"
+    echo " "
+
+    while read -r line
+    do
+
+    if ! grep -Fxq "$line" leeched; then
+    echo "$line"
+    echo "$line" >> leeched
+    fi
+
+    done <<< "$check"
+
+    echo " "
+
+}
+
 function _play()
 {
 
