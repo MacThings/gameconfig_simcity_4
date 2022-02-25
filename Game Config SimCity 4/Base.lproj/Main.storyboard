@@ -582,24 +582,52 @@ AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
             <objects>
                 <viewController id="vwd-LF-hKC" sceneMemberID="viewController">
                     <view key="view" id="EIX-gh-Bql">
-                        <rect key="frame" x="0.0" y="0.0" width="682" height="301"/>
+                        <rect key="frame" x="0.0" y="0.0" width="760" height="681"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YtK-5f-8a5">
-                                <rect key="frame" x="18" y="53" width="619" height="228"/>
+                                <rect key="frame" x="18" y="614" width="724" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="5Rg-6B-fYG">
+                                <textFieldCell key="cell" selectable="YES" id="5Rg-6B-fYG">
                                     <font key="font" usesAppearanceFont="YES"/>
+                                    <string key="title" base64-UTF8="YES">
+V2l0aCB0aGlzIGZ1bmN0aW9uIHlvdSBjYW4gY2hlY2sgd2hpY2ggZGVwZW5kZW5jaWVzIHN0aWxsIG5l
+ZWQgdG8gYmUgaW5zdGFsbGVkLiBZb3UganVzdCBoYXZlIHRvIG1hcmsgdGhlIGFyZWEgd2l0aCB0aGUg
+VVJMcyBsaWtlIGluIHRoaXMgZXhhbXBsZSBhbmQgY2xpY2sgb24gJ0NvcHkgc2VsZWN0ZWQgbGlua3Mn
+LiBJbiB0aGUgR2FtZSBDb25maWcgQXBwIHByZXNzIHRoZSBidXR0b24gJ0NoZWNrIE1vZCBEZXBlbmRl
+bmNpZXMnLiADVG8gdXNlIHRoaXMgZnVuY3Rpb24geW91IG11c3QgaGF2ZSB0aGUgZm9sbG93aW5nIGFk
+ZC1vbiBpbnN0YWxsZWQgaW4geW91ciBicm93c2VyOg
+</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FZo-ID-A8J">
+                                <rect key="frame" x="18" y="526" width="724" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" selectable="YES" id="2Wb-Vp-SQa">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <string key="title">Chrome/Chromium/Brave/etc.:
+https://chrome.google.com/webstore/detail/copy-selected-links/kddpiojgkjnpmgiegglncafdpnigcbij
+
+Firefox:
+https://addons.mozilla.org/de/firefox/addon/copy-selected-links/
+</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hSG-PA-gfy">
+                                <rect key="frame" x="39" y="34" width="671" height="484"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Selected_links" id="S0A-Jw-EoJ"/>
+                            </imageView>
                         </subviews>
                     </view>
                 </viewController>
                 <customObject id="xH6-Mh-rqS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-16" y="1201.5"/>
+            <point key="canvasLocation" x="-65" y="1471"/>
         </scene>
         <!--Shortcuts-->
         <scene sceneID="zZF-nz-HeY">
@@ -633,5 +661,6 @@ AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
     </scenes>
     <resources>
         <image name="Keyboard" width="2077" height="764"/>
+        <image name="Selected_links" width="948" height="749"/>
     </resources>
 </document>
