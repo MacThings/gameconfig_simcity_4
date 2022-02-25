@@ -118,13 +118,25 @@ function _check_nammod()
 function _check_installed_mods()
 {
 
+osascript <<EOD
+tell application "TextEdit"
+    set windowCount to number of windows
+    repeat with x from 1 to windowCount
+        set docName to (name of document of window x)
+        if (docName is equal to "sc4_mods_to_install.txt") then
+            close window x
+        end if
+    end repeat
+end tell
+EOD
+    
     leeched_path=$( echo "$HOME/Documents/SimCity 4" )
     cd "$leeched_path"
     
-    check=$( pbpaste |sed -e 's/.*http/http/g' |sed -e '/EITHER/d' -e '/OR/d' |grep "http" |uniq )
+    check=$( pbpaste |sed -e 's/.*http/http/g' |sed -e '/EITHER/d' -e '/OR/d' |grep -E "http|sc4devotion|simtropolis" |uniq )
 
-    if [ ! -f "mods_installed" ]; then
-        touch "mods_installed"
+    if [ ! -f "mods_installed.txt" ]; then
+        touch "mods_installed.txt"
     fi
     
     if [ -f "/private/tmp/sc4_mods_to_install.txt" ]; then
@@ -134,9 +146,9 @@ function _check_installed_mods()
     while read -r line
     do
 
-    if ! grep -Fxq "$line" mods_installed; then
+    if ! grep -Fxq "$line" mods_installed.txt; then
         echo "$line" >> /private/tmp/sc4_mods_to_install.txt
-        echo "$line" >> mods_installed
+        echo "$line" >> mods_installed.txt
     fi
 
     done <<< "$check"

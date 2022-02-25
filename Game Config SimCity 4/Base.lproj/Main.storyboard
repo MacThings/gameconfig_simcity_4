@@ -410,7 +410,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yn7-kc-ATF">
-                                <rect key="frame" x="93" y="94" width="78" height="32"/>
+                                <rect key="frame" x="92" y="94" width="78" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Open Plugins" bezelStyle="rounded" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7PL-ce-ohY">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -520,8 +520,19 @@ AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
                                     <font key="font" metaFont="miniSystem"/>
                                 </buttonCell>
                             </button>
+                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5z6-go-AwG">
+                                <rect key="frame" x="209" y="83" width="16" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jkt-aN-UGn">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="miniSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="vwd-LF-hKC" kind="popover" popoverAnchorView="5z6-go-AwG" popoverBehavior="t" preferredEdge="maxY" id="i1U-4K-AKs"/>
+                                </connections>
+                            </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAP-cd-YHq">
-                                <rect key="frame" x="92" y="75" width="153" height="32"/>
+                                <rect key="frame" x="55" y="75" width="153" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Check Mod Dependencies" bezelStyle="rounded" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fzH-v7-nzp">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -566,6 +577,30 @@ AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
             </objects>
             <point key="canvasLocation" x="-107" y="759.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="CCr-Mr-gSJ">
+            <objects>
+                <viewController id="vwd-LF-hKC" sceneMemberID="viewController">
+                    <view key="view" id="EIX-gh-Bql">
+                        <rect key="frame" x="0.0" y="0.0" width="682" height="301"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YtK-5f-8a5">
+                                <rect key="frame" x="18" y="53" width="619" height="228"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="5Rg-6B-fYG">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="xH6-Mh-rqS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16" y="1201.5"/>
+        </scene>
         <!--Shortcuts-->
         <scene sceneID="zZF-nz-HeY">
             <objects>
@@ -593,7 +628,7 @@ AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
                 </viewController>
                 <customObject id="qsf-gQ-tHM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1494" y="828"/>
+            <point key="canvasLocation" x="1122" y="798"/>
         </scene>
     </scenes>
     <resources>

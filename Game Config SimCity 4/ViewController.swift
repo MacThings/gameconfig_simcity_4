@@ -230,15 +230,15 @@ class ViewController: NSViewController {
         let check_mod_dependencies = UserDefaults.standard.string(forKey: "ModsInstalled")
         if check_mod_dependencies == nil{
             let alert = NSAlert()
-            alert.messageText = NSLocalizedString("Read before proceed!", comment: "")
-            alert.informativeText = NSLocalizedString("When the installation in Windows has been completed, close the setup program. Don't open the game just yet!\n\nThe Game Config app will restart automatic and than you can press \"Play\"", comment: "")
+            alert.messageText = NSLocalizedString("Nothing new dependencies found!", comment: "")
+            alert.informativeText = NSLocalizedString("All necessary dependencies seems to be already installed. If you miss/forgot something you can find all urls in the file\n\n~/Documents/SimCity 4/mods_installed.txt", comment: "")
             alert.alertStyle = .informational
             alert.icon = NSImage(named: "NSError")
             let Button = NSLocalizedString("Ok", comment: "")
             alert.addButton(withTitle: Button)
             alert.runModal()
         }
-        UserDefaults.standard.removeObject(forKey: "GameRunning")
+        UserDefaults.standard.removeObject(forKey: "ModsInstalled")
     }
     
     @IBAction func save_config(_ sender: Any) {
