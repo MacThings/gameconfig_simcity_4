@@ -499,18 +499,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-nA-ghC">
-                                <rect key="frame" x="457" y="-76" width="528" height="231"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" selectable="YES" alignment="left" drawsBackground="YES" id="bOc-iy-IaJ">
-                                    <font key="font" metaFont="system" size="40"/>
-                                    <string key="title" base64-UTF8="YES">
-AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
-</string>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xlb-qy-gDE">
                                 <rect key="frame" x="418" y="76" width="92" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -542,6 +530,18 @@ AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
                                     <action selector="check_mod_dependencies:" target="XfG-lQ-9wD" id="dwA-DJ-of4"/>
                                 </connections>
                             </button>
+                            <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-nA-ghC">
+                                <rect key="frame" x="0.0" y="0.0" width="528" height="255"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="left" drawsBackground="YES" id="bOc-iy-IaJ">
+                                    <font key="font" metaFont="system" size="40"/>
+                                    <string key="title" base64-UTF8="YES">
+AwMDA+KAqOKAqCAgICAgIAMgICAgICAgICAgICAgICBSdW5uaW5nIC4uLg
+</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
